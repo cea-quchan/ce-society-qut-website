@@ -1,0 +1,43 @@
+{
+    "title": "Webinarlar",
+    "upcoming": "Yaklaşan Webinarlar",
+    "past": "Geçmiş Webinarlar",
+    "newWebinar": "Yeni Webinar",
+    "editWebinar": "Webinarı Düzenle",
+    "deleteWebinar": "Webinarı Sil",
+    "webinarTitle": "Başlık",
+    "webinarDescription": "Açıklama",
+    "startTime": "Başlangıç Zamanı",
+    "duration": "Süre",
+    "maxParticipants": "Maksimum Katılımcı",
+    "meetingLink": "Toplantı Bağlantısı",
+    "host": "Ev Sahibi",
+    "participants": "Katılımcılar",
+    "comments": "Yorumlar",
+    "newComment": "Yeni Yorum",
+    "commentContent": "İçerik",
+    "join": "Katıl",
+    "leave": "Ayrıl",
+    "submit": "Gönder",
+    "cancel": "İptal",
+    "search": "Ara",
+    "filter": "Filtrele",
+    "noWebinars": "Webinar bulunamadı",
+    "noComments": "Yorum bulunamadı",
+    "status": {
+        "scheduled": "Planlandı",
+        "ongoing": "Devam Ediyor",
+        "completed": "Tamamlandı",
+        "cancelled": "İptal Edildi"
+    },
+    "errors": {
+        "fetchWebinarsFailed": "Webinarlar alınamadı",
+        "createWebinarFailed": "Webinar oluşturulamadı",
+        "updateWebinarFailed": "Webinar güncellenemedi",
+        "deleteWebinarFailed": "Webinar silinemedi",
+        "joinFailed": "Webinara katılınamadı",
+        "leaveFailed": "Webinardan ayrılınamadı",
+        "fetchCommentsFailed": "Yorumlar alınamadı",
+        "addCommentFailed": "Yorum eklenemedi"
+    }
+}

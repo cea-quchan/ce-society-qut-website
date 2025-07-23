@@ -1,0 +1,70 @@
+{
+    "name": "انجمن علمی مهندسی کامپیوتر",
+    "short_name": "انجمن علمی",
+    "description": "وب‌سایت انجمن علمی مهندسی کامپیوتر دانشگاه صنعتی قوچان",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#1976d2",
+    "orientation": "portrait",
+    "icons": [{
+            "src": "/icons/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "any maskable"
+        },
+        {
+            "src": "/icons/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any maskable"
+        }
+    ],
+    "shortcuts": [{
+            "name": "دوره‌های آموزشی",
+            "short_name": "دوره‌ها",
+            "description": "مشاهده دوره‌های آموزشی",
+            "url": "/courses",
+            "icons": [{ "src": "/icons/courses.png", "sizes": "192x192" }]
+        },
+        {
+            "name": "مسابقات",
+            "short_name": "مسابقات",
+            "description": "مشاهده مسابقات فعال",
+            "url": "/competitions",
+            "icons": [{ "src": "/icons/competitions.png", "sizes": "192x192" }]
+        },
+        {
+            "name": "مقالات",
+            "short_name": "مقالات",
+            "description": "مطالعه مقالات آموزشی",
+            "url": "/articles",
+            "icons": [{ "src": "/icons/articles.png", "sizes": "192x192" }]
+        }
+    ],
+    "screenshots": [{
+            "src": "/screenshots/home.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "platform": "wide",
+            "label": "صفحه اصلی Root2"
+        },
+        {
+            "src": "/screenshots/courses.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "platform": "wide",
+            "label": "دوره‌های آموزشی"
+        },
+        {
+            "src": "/screenshots/competitions.png",
+            "sizes": "1280x720",
+            "type": "image/png",
+            "platform": "wide",
+            "label": "مسابقات"
+        }
+    ],
+    "categories": ["education", "productivity"],
+    "lang": "fa-IR",
+    "dir": "rtl"
+}

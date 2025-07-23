@@ -1,0 +1,43 @@
+{
+    "title": "Webinaires",
+    "upcoming": "Webinaires à venir",
+    "past": "Webinaires passés",
+    "newWebinar": "Nouveau webinaire",
+    "editWebinar": "Modifier le webinaire",
+    "deleteWebinar": "Supprimer le webinaire",
+    "webinarTitle": "Titre",
+    "webinarDescription": "Description",
+    "startTime": "Heure de début",
+    "duration": "Durée",
+    "maxParticipants": "Participants maximum",
+    "meetingLink": "Lien de la réunion",
+    "host": "Hôte",
+    "participants": "Participants",
+    "comments": "Commentaires",
+    "newComment": "Nouveau commentaire",
+    "commentContent": "Contenu",
+    "join": "Rejoindre",
+    "leave": "Quitter",
+    "submit": "Soumettre",
+    "cancel": "Annuler",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "noWebinars": "Aucun webinaire disponible",
+    "noComments": "Aucun commentaire disponible",
+    "status": {
+        "scheduled": "Planifié",
+        "ongoing": "En cours",
+        "completed": "Terminé",
+        "cancelled": "Annulé"
+    },
+    "errors": {
+        "fetchWebinarsFailed": "Impossible de récupérer les webinaires",
+        "createWebinarFailed": "Impossible de créer le webinaire",
+        "updateWebinarFailed": "Impossible de mettre à jour le webinaire",
+        "deleteWebinarFailed": "Impossible de supprimer le webinaire",
+        "joinFailed": "Impossible de rejoindre le webinaire",
+        "leaveFailed": "Impossible de quitter le webinaire",
+        "fetchCommentsFailed": "Impossible de récupérer les commentaires",
+        "addCommentFailed": "Impossible d'ajouter le commentaire"
+    }
+}

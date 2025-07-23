@@ -1,0 +1,31 @@
+{
+    "title": "Chats",
+    "groups": "Gruppen",
+    "messages": "Nachrichten",
+    "newGroup": "Neue Gruppe",
+    "newMessage": "Neue Nachricht",
+    "groupName": "Gruppenname",
+    "groupDescription": "Gruppenbeschreibung",
+    "messageContent": "Inhalt",
+    "send": "Senden",
+    "join": "Beitreten",
+    "leave": "Verlassen",
+    "addMember": "Mitglied hinzufügen",
+    "removeMember": "Mitglied entfernen",
+    "noGroups": "Keine Gruppen verfügbar",
+    "noMessages": "Keine Nachrichten verfügbar",
+    "roles": {
+        "admin": "Administrator",
+        "member": "Mitglied"
+    },
+    "errors": {
+        "fetchGroupsFailed": "Gruppen konnten nicht abgerufen werden",
+        "fetchMessagesFailed": "Nachrichten konnten nicht abgerufen werden",
+        "createGroupFailed": "Gruppe konnte nicht erstellt werden",
+        "sendMessageFailed": "Nachricht konnte nicht gesendet werden",
+        "joinFailed": "Beitritt zur Gruppe fehlgeschlagen",
+        "leaveFailed": "Verlassen der Gruppe fehlgeschlagen",
+        "addMemberFailed": "Mitglied konnte nicht hinzugefügt werden",
+        "removeMemberFailed": "Mitglied konnte nicht entfernt werden"
+    }
+}

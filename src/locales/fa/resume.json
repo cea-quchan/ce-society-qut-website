@@ -1,0 +1,31 @@
+{
+    "title": "رزومه‌ساز",
+    "create": "ایجاد رزومه",
+    "edit": "ویرایش رزومه",
+    "delete": "حذف رزومه",
+    "download": "دانلود رزومه",
+    "preview": "پیش‌نمایش",
+    "personalInfo": "اطلاعات شخصی",
+    "education": "تحصیلات",
+    "experience": "سوابق کاری",
+    "skills": "مهارت‌ها",
+    "projects": "پروژه‌ها",
+    "certificates": "گواهینامه‌ها",
+    "languages": "زبان‌ها",
+    "interests": "علایق",
+    "references": "معرف‌ها",
+    "templates": "قالب‌ها",
+    "save": "ذخیره",
+    "cancel": "انصراف",
+    "noResumes": "هیچ رزومه‌ای موجود نیست",
+    "errors": {
+        "fetchResumesFailed": "خطا در دریافت رزومه‌ها",
+        "createResumeFailed": "خطا در ایجاد رزومه",
+        "updateResumeFailed": "خطا در بروزرسانی رزومه",
+        "deleteResumeFailed": "خطا در حذف رزومه",
+        "downloadFailed": "خطا در دانلود رزومه",
+        "previewFailed": "خطا در پیش‌نمایش رزومه",
+        "invalidTemplate": "قالب نامعتبر است",
+        "invalidData": "اطلاعات نامعتبر است"
+    }
+}

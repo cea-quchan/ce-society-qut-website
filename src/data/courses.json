@@ -1,0 +1,19 @@
+[{
+        "id": 1,
+        "title": "آموزش React.js",
+        "description": "دوره جامع آموزش React.js",
+        "instructor": "علی محمدی",
+        "duration": "12 هفته",
+        "level": "متوسط",
+        "image": "/images/course-1.jpg"
+    },
+    {
+        "id": 2,
+        "title": "برنامه‌نویسی پایتون",
+        "description": "دوره مقدماتی تا پیشرفته پایتون",
+        "instructor": "رضا احمدی",
+        "duration": "16 هفته",
+        "level": "مبتدی",
+        "image": "/images/course-2.jpg"
+    }
+]

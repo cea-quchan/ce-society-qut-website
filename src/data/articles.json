@@ -1,0 +1,17 @@
+[{
+        "id": 1,
+        "title": "معرفی React.js",
+        "description": "آشنایی با فریم‌ورک React.js و مزایای آن",
+        "author": "علی محمدی",
+        "date": "2024-03-15",
+        "image": "/images/news-1.jpg"
+    },
+    {
+        "id": 2,
+        "title": "برنامه‌نویسی پایتون",
+        "description": "آموزش مقدماتی تا پیشرفته پایتون",
+        "author": "رضا احمدی",
+        "date": "2024-03-14",
+        "image": "/images/news-2.jpg"
+    }
+]

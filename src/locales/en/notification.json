@@ -1,0 +1,28 @@
+{
+    "notifications": {
+        "title": "Notifications",
+        "noNotifications": "No notifications",
+        "markAllAsRead": "Mark all as read",
+        "delete": "Delete",
+        "types": {
+            "info": "Information",
+            "success": "Success",
+            "warning": "Warning",
+            "error": "Error"
+        },
+        "messages": {
+            "courseEnrolled": "You have successfully enrolled in {{courseName}} course",
+            "competitionJoined": "You have successfully joined {{competitionName}} competition",
+            "competitionWon": "Congratulations! You won {{competitionName}} competition",
+            "paymentSuccessful": "Your payment was successful",
+            "paymentFailed": "Your payment failed",
+            "newLesson": "New lesson {{lessonName}} has been added to {{courseName}} course",
+            "newCompetition": "New competition {{competitionName}} has been created"
+        },
+        "errors": {
+            "fetchFailed": "Failed to fetch notifications",
+            "markAsReadFailed": "Failed to update notification status",
+            "deleteFailed": "Failed to delete notification"
+        }
+    }
+}

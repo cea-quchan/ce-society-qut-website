@@ -1,0 +1,14 @@
+{
+    "title": "Puanlar",
+    "total": "Toplam Puan",
+    "history": "Puan Geçmişi",
+    "activity": "Aktivite",
+    "amount": "Miktar",
+    "date": "Tarih",
+    "description": "Açıklama",
+    "noPoints": "Kayıtlı puan yok",
+    "errors": {
+        "fetchFailed": "Puanlar alınamadı",
+        "addFailed": "Puan eklenemedi"
+    }
+}

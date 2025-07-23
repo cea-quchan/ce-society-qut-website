@@ -1,0 +1,35 @@
+{
+    "title": "Anketler",
+    "active": "Aktif Anketler",
+    "closed": "Kapalı Anketler",
+    "newPoll": "Yeni Anket",
+    "editPoll": "Anketi Düzenle",
+    "deletePoll": "Anketi Sil",
+    "pollTitle": "Başlık",
+    "pollDescription": "Açıklama",
+    "options": "Seçenekler",
+    "newOption": "Yeni Seçenek",
+    "endDate": "Bitiş Tarihi",
+    "creator": "Oluşturan",
+    "votes": "Oylar",
+    "submit": "Gönder",
+    "cancel": "İptal",
+    "search": "Ara",
+    "filter": "Filtrele",
+    "noPolls": "Anket bulunamadı",
+    "status": {
+        "active": "Aktif",
+        "closed": "Kapalı",
+        "cancelled": "İptal Edildi"
+    },
+    "errors": {
+        "fetchPollsFailed": "Anketler alınamadı",
+        "createPollFailed": "Anket oluşturulamadı",
+        "updatePollFailed": "Anket güncellenemedi",
+        "deletePollFailed": "Anket silinemedi",
+        "submitVoteFailed": "Oy gönderilemedi",
+        "alreadyVoted": "Bu ankete zaten oy verdiniz",
+        "pollClosed": "Bu anket kapalı",
+        "pollCancelled": "Bu anket iptal edildi"
+    }
+}

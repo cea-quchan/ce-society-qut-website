@@ -1,0 +1,28 @@
+{
+    "notifications": {
+        "title": "اعلان‌ها",
+        "noNotifications": "هیچ اعلانی وجود ندارد",
+        "markAllAsRead": "علامت‌گذاری همه به عنوان خوانده شده",
+        "delete": "حذف",
+        "types": {
+            "info": "اطلاعات",
+            "success": "موفقیت",
+            "warning": "هشدار",
+            "error": "خطا"
+        },
+        "messages": {
+            "courseEnrolled": "شما با موفقیت در دوره {{courseName}} ثبت‌نام کردید",
+            "competitionJoined": "شما با موفقیت در مسابقه {{competitionName}} شرکت کردید",
+            "competitionWon": "تبریک! شما در مسابقه {{competitionName}} برنده شدید",
+            "paymentSuccessful": "پرداخت شما با موفقیت انجام شد",
+            "paymentFailed": "پرداخت شما ناموفق بود",
+            "newLesson": "درس جدید {{lessonName}} در دوره {{courseName}} اضافه شد",
+            "newCompetition": "مسابقه جدید {{competitionName}} ایجاد شد"
+        },
+        "errors": {
+            "fetchFailed": "خطا در دریافت اعلان‌ها",
+            "markAsReadFailed": "خطا در به‌روزرسانی وضعیت اعلان‌ها",
+            "deleteFailed": "خطا در حذف اعلان"
+        }
+    }
+}

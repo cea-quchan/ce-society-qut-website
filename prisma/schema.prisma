@@ -1,0 +1,262 @@
+// تنظیمات generator و datasource
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// مدل User
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String
+  password  String
+  role      String
+  points    Int      @default(0)
+  image     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  // روابط
+  articles      Article[]
+  events        Event[]        @relation("OrganizerEvents")
+  competitions  Competition[]  @relation("OrganizerCompetitions")
+  courses       Course[]       @relation("InstructorCourses")
+  chatMessages  ChatMessage[]
+  chatGroups    ChatGroupMember[]
+  libraryResources LibraryResource[] @relation("AuthorLibraryResources")
+  libraryComments  LibraryComment[]  @relation("AuthorLibraryComments")
+  pointsHistory Points[]
+  pollVotes     PollVote[]
+  webinarComments WebinarComment[]
+  webinarParticipants WebinarParticipant[]
+  pollsCreated Poll[]        @relation("PollsCreatedByUser")
+  webinarsHosted Webinar[]   @relation("WebinarsHostedByUser")
+}
+
+// مدل Article
+model Article {
+  id        String   @id @default(uuid())
+  title     String
+  content   String
+  published Boolean  @default(false)
+  author    User     @relation(fields: [authorId], references: [id])
+  authorId  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// مدل Event
+model Event {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  startDate   DateTime
+  endDate     DateTime
+  location    String
+  capacity    Int
+  organizer   User     @relation("OrganizerEvents", fields: [organizerId], references: [id])
+  organizerId String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// مدل Competition
+model Competition {
+  id             String   @id @default(uuid())
+  title          String
+  description    String
+  startDate      DateTime
+  endDate        DateTime
+  status         String
+  rules          String
+  prize          String
+  maxParticipants Int
+  location       String
+  image          String?
+  organizer      User     @relation("OrganizerCompetitions", fields: [organizerId], references: [id])
+  organizerId    String
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+// مدل Course
+model Course {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  price       Float
+  published   Boolean  @default(false)
+  startDate   DateTime
+  endDate     DateTime
+  capacity    Int
+  instructor  User     @relation("InstructorCourses", fields: [instructorId], references: [id])
+  instructorId String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// مدل Library
+model LibraryCategory {
+  id          String   @id @default(uuid())
+  name        String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  resources   LibraryResource[]
+}
+
+model LibraryTag {
+  id        String   @id @default(uuid())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model LibraryResource {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  content     String
+  fileUrl     String
+  author      User     @relation("AuthorLibraryResources", fields: [authorId], references: [id])
+  authorId    String
+  category    LibraryCategory @relation(fields: [categoryId], references: [id])
+  categoryId  String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  comments    LibraryComment[]
+}
+
+model LibraryComment {
+  id          String   @id @default(uuid())
+  resource    LibraryResource @relation(fields: [resourceId], references: [id])
+  resourceId  String
+  author      User     @relation("AuthorLibraryComments", fields: [authorId], references: [id])
+  authorId    String
+  content     String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// مدل Points
+model Points {
+  id          String   @id @default(uuid())
+  user        User     @relation(fields: [userId], references: [id])
+  userId      String
+  amount      Int
+  activity    String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// مدل Poll
+model Poll {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  creator     User     @relation("PollsCreatedByUser", fields: [creatorId], references: [id])
+  creatorId   String
+  status      String
+  endDate     DateTime
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  options     PollOption[]
+  votes       PollVote[]
+}
+
+model PollOption {
+  id        String   @id @default(uuid())
+  poll      Poll     @relation(fields: [pollId], references: [id])
+  pollId    String
+  text      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  votes     PollVote[]
+}
+
+model PollVote {
+  id        String   @id @default(uuid())
+  poll      Poll     @relation(fields: [pollId], references: [id])
+  pollId    String
+  option    PollOption @relation(fields: [optionId], references: [id])
+  optionId  String
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  createdAt DateTime @default(now())
+}
+
+// مدل Webinar
+model Webinar {
+  id              String   @id @default(uuid())
+  title           String
+  description     String
+  startTime       DateTime
+  duration        Int
+  maxParticipants Int
+  meetingLink     String
+  host            User     @relation("WebinarsHostedByUser", fields: [hostId], references: [id])
+  hostId          String
+  status          String
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  participants    WebinarParticipant[]
+  comments        WebinarComment[]
+}
+
+model WebinarParticipant {
+  id         String   @id @default(uuid())
+  webinar    Webinar  @relation(fields: [webinarId], references: [id])
+  webinarId  String
+  user       User     @relation(fields: [userId], references: [id])
+  userId     String
+  joinedAt   DateTime?
+  leftAt     DateTime?
+}
+
+model WebinarComment {
+  id         String   @id @default(uuid())
+  webinar    Webinar  @relation(fields: [webinarId], references: [id])
+  webinarId  String
+  author     User     @relation(fields: [authorId], references: [id])
+  authorId   String
+  content    String
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+// مدل Chat
+model ChatGroup {
+  id          String   @id @default(uuid())
+  name        String
+  description String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  members     ChatGroupMember[]
+  messages    ChatMessage[]
+}
+
+model ChatMessage {
+  id        String   @id @default(uuid())
+  group     ChatGroup @relation(fields: [groupId], references: [id])
+  groupId   String
+  sender    User     @relation(fields: [senderId], references: [id])
+  senderId  String
+  content   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model ChatGroupMember {
+  id        String   @id @default(uuid())
+  group     ChatGroup @relation(fields: [groupId], references: [id])
+  groupId   String
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  role      String
+  joinedAt  DateTime
+}

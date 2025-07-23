@@ -1,0 +1,19 @@
+[{
+        "id": 1,
+        "title": "دانش‌آموزان",
+        "value": 1000,
+        "icon": "school"
+    },
+    {
+        "id": 2,
+        "title": "دوره‌ها",
+        "value": 50,
+        "icon": "book"
+    },
+    {
+        "id": 3,
+        "title": "مسابقات",
+        "value": 20,
+        "icon": "emoji_events"
+    }
+]

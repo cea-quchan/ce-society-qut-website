@@ -1,0 +1,41 @@
+{
+    "title": "داشبورد",
+    "news": {
+        "newsTitle": "مدیریت اخبار",
+        "addNews": "افزودن خبر",
+        "editNews": "ویرایش خبر",
+        "deleteNews": "حذف خبر",
+        "confirmDelete": "آیا مطمئن هستید که می‌خواهید این خبر را حذف کنید؟",
+        "itemTitle": "عنوان",
+        "content": "محتوا",
+        "category": "دسته‌بندی",
+        "author": "نویسنده",
+        "status": "وضعیت",
+        "published": "منتشر شده",
+        "draft": "پیش‌نویس",
+        "archived": "بایگانی شده",
+        "featured": "ویژه",
+        "views": "بازدیدها",
+        "likes": "لایک‌ها",
+        "comments": "نظرات",
+        "actions": "عملیات",
+        "search": "جستجو در اخبار...",
+        "filterByCategory": "فیلتر بر اساس دسته‌بندی",
+        "filterByStatus": "فیلتر بر اساس وضعیت",
+        "all": "همه",
+        "technology": "فناوری",
+        "events": "رویدادها",
+        "updates": "به‌روزرسانی‌ها",
+        "save": "ذخیره",
+        "cancel": "لغو",
+        "delete": "حذف",
+        "edit": "ویرایش",
+        "view": "مشاهده"
+    },
+    "common": {
+        "loading": "در حال بارگذاری...",
+        "error": "خطایی رخ داد",
+        "noData": "داده‌ای موجود نیست",
+        "success": "عملیات با موفقیت انجام شد"
+    }
+}

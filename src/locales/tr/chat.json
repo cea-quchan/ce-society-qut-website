@@ -1,0 +1,31 @@
+{
+    "title": "Sohbetler",
+    "groups": "Gruplar",
+    "messages": "Mesajlar",
+    "newGroup": "Yeni Grup",
+    "newMessage": "Yeni Mesaj",
+    "groupName": "Grup Adı",
+    "groupDescription": "Grup Açıklaması",
+    "messageContent": "İçerik",
+    "send": "Gönder",
+    "join": "Katıl",
+    "leave": "Ayrıl",
+    "addMember": "Üye Ekle",
+    "removeMember": "Üye Çıkar",
+    "noGroups": "Grup bulunamadı",
+    "noMessages": "Mesaj bulunamadı",
+    "roles": {
+        "admin": "Yönetici",
+        "member": "Üye"
+    },
+    "errors": {
+        "fetchGroupsFailed": "Gruplar alınamadı",
+        "fetchMessagesFailed": "Mesajlar alınamadı",
+        "createGroupFailed": "Grup oluşturulamadı",
+        "sendMessageFailed": "Mesaj gönderilemedi",
+        "joinFailed": "Gruba katılınamadı",
+        "leaveFailed": "Gruptan ayrılınamadı",
+        "addMemberFailed": "Üye eklenemedi",
+        "removeMemberFailed": "Üye çıkarılamadı"
+    }
+}

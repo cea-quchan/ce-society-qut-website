@@ -1,0 +1,17 @@
+[{
+        "id": 1,
+        "title": "سوال در مورد React",
+        "content": "چگونه می‌توان از React Router استفاده کرد؟",
+        "author": "علی محمدی",
+        "date": "2024-03-20",
+        "replies": 5
+    },
+    {
+        "id": 2,
+        "title": "مشکل در پایتون",
+        "content": "خطای ImportError در پایتون",
+        "author": "رضا احمدی",
+        "date": "2024-03-19",
+        "replies": 3
+    }
+]

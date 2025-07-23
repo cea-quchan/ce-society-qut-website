@@ -1,0 +1,15 @@
+[{
+        "id": 1,
+        "type": "deposit",
+        "amount": 1000000,
+        "date": "2024-03-20",
+        "status": "completed"
+    },
+    {
+        "id": 2,
+        "type": "withdraw",
+        "amount": 500000,
+        "date": "2024-03-19",
+        "status": "pending"
+    }
+]

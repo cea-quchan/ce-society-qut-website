@@ -1,0 +1,35 @@
+{
+    "title": "Umfragen",
+    "active": "Aktive Umfragen",
+    "closed": "Geschlossene Umfragen",
+    "newPoll": "Neue Umfrage",
+    "editPoll": "Umfrage bearbeiten",
+    "deletePoll": "Umfrage löschen",
+    "pollTitle": "Titel",
+    "pollDescription": "Beschreibung",
+    "options": "Optionen",
+    "newOption": "Neue Option",
+    "endDate": "Enddatum",
+    "creator": "Ersteller",
+    "votes": "Stimmen",
+    "submit": "Absenden",
+    "cancel": "Abbrechen",
+    "search": "Suchen",
+    "filter": "Filtern",
+    "noPolls": "Keine Umfragen verfügbar",
+    "status": {
+        "active": "Aktiv",
+        "closed": "Geschlossen",
+        "cancelled": "Abgesagt"
+    },
+    "errors": {
+        "fetchPollsFailed": "Umfragen konnten nicht abgerufen werden",
+        "createPollFailed": "Umfrage konnte nicht erstellt werden",
+        "updatePollFailed": "Umfrage konnte nicht aktualisiert werden",
+        "deletePollFailed": "Umfrage konnte nicht gelöscht werden",
+        "submitVoteFailed": "Stimme konnte nicht abgegeben werden",
+        "alreadyVoted": "Sie haben bereits an dieser Umfrage teilgenommen",
+        "pollClosed": "Diese Umfrage ist geschlossen",
+        "pollCancelled": "Diese Umfrage wurde abgesagt"
+    }
+}

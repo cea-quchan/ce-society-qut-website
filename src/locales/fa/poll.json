@@ -1,0 +1,35 @@
+{
+    "title": "نظرسنجی‌ها",
+    "active": "نظرسنجی‌های فعال",
+    "closed": "نظرسنجی‌های بسته",
+    "newPoll": "نظرسنجی جدید",
+    "editPoll": "ویرایش نظرسنجی",
+    "deletePoll": "حذف نظرسنجی",
+    "pollTitle": "عنوان",
+    "pollDescription": "توضیحات",
+    "options": "گزینه‌ها",
+    "newOption": "گزینه جدید",
+    "endDate": "تاریخ پایان",
+    "creator": "ایجادکننده",
+    "votes": "آرا",
+    "submit": "ثبت",
+    "cancel": "انصراف",
+    "search": "جستجو",
+    "filter": "فیلتر",
+    "noPolls": "هیچ نظرسنجی وجود ندارد",
+    "status": {
+        "active": "فعال",
+        "closed": "بسته",
+        "cancelled": "لغو شده"
+    },
+    "errors": {
+        "fetchPollsFailed": "خطا در دریافت نظرسنجی‌ها",
+        "createPollFailed": "خطا در ایجاد نظرسنجی",
+        "updatePollFailed": "خطا در ویرایش نظرسنجی",
+        "deletePollFailed": "خطا در حذف نظرسنجی",
+        "submitVoteFailed": "خطا در ثبت رأی",
+        "alreadyVoted": "شما قبلاً در این نظرسنجی شرکت کرده‌اید",
+        "pollClosed": "این نظرسنجی بسته شده است",
+        "pollCancelled": "این نظرسنجی لغو شده است"
+    }
+}

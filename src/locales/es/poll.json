@@ -1,0 +1,34 @@
+{
+    "title": "Encuestas",
+    "active": "Encuestas activas",
+    "closed": "Encuestas cerradas",
+    "newPoll": "Nueva encuesta",
+    "editPoll": "Editar encuesta",
+    "deletePoll": "Eliminar encuesta",
+    "pollTitle": "Título",
+    "pollDescription": "Descripción",
+    "options": "Opciones",
+    "addOption": "Agregar opción",
+    "removeOption": "Eliminar opción",
+    "submit": "Enviar",
+    "cancel": "Cancelar",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "noPolls": "No hay encuestas disponibles",
+    "status": {
+        "active": "Activa",
+        "closed": "Cerrada",
+        "cancelled": "Cancelada"
+    },
+    "errors": {
+        "fetchPollsFailed": "No se pudieron obtener las encuestas",
+        "createPollFailed": "No se pudo crear la encuesta",
+        "updatePollFailed": "No se pudo actualizar la encuesta",
+        "deletePollFailed": "No se pudo eliminar la encuesta",
+        "submitVoteFailed": "No se pudo enviar el voto",
+        "invalidOption": "Opción inválida",
+        "alreadyVoted": "Ya has votado en esta encuesta",
+        "pollClosed": "Esta encuesta está cerrada",
+        "pollCancelled": "Esta encuesta está cancelada"
+    }
+}

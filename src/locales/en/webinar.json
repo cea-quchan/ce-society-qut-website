@@ -1,0 +1,43 @@
+{
+    "title": "Webinars",
+    "upcoming": "Upcoming Webinars",
+    "past": "Past Webinars",
+    "newWebinar": "New Webinar",
+    "editWebinar": "Edit Webinar",
+    "deleteWebinar": "Delete Webinar",
+    "webinarTitle": "Title",
+    "webinarDescription": "Description",
+    "startTime": "Start Time",
+    "duration": "Duration",
+    "maxParticipants": "Max Participants",
+    "meetingLink": "Meeting Link",
+    "host": "Host",
+    "participants": "Participants",
+    "comments": "Comments",
+    "newComment": "New Comment",
+    "commentContent": "Content",
+    "join": "Join",
+    "leave": "Leave",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "search": "Search",
+    "filter": "Filter",
+    "noWebinars": "No webinars available",
+    "noComments": "No comments available",
+    "status": {
+        "scheduled": "Scheduled",
+        "ongoing": "Ongoing",
+        "completed": "Completed",
+        "cancelled": "Cancelled"
+    },
+    "errors": {
+        "fetchWebinarsFailed": "Failed to fetch webinars",
+        "createWebinarFailed": "Failed to create webinar",
+        "updateWebinarFailed": "Failed to update webinar",
+        "deleteWebinarFailed": "Failed to delete webinar",
+        "joinFailed": "Failed to join webinar",
+        "leaveFailed": "Failed to leave webinar",
+        "fetchCommentsFailed": "Failed to fetch comments",
+        "addCommentFailed": "Failed to add comment"
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "title": "تحلیل‌ها",
+    "dashboard": "داشبورد",
+    "users": "کاربران",
+    "content": "محتوا",
+    "engagement": "تعامل",
+    "revenue": "درآمد",
+    "reports": "گزارش‌ها",
+    "dateRange": "بازه زمانی",
+    "metrics": "شاخص‌ها",
+    "filters": "فیلترها",
+    "export": "خروجی",
+    "refresh": "بروزرسانی",
+    "noData": "داده‌ای موجود نیست",
+    "errors": {
+        "fetchDataFailed": "خطا در دریافت داده‌ها",
+        "generateReportFailed": "خطا در ایجاد گزارش",
+        "exportFailed": "خطا در خروجی گرفتن",
+        "invalidDateRange": "بازه زمانی نامعتبر است",
+        "invalidFilters": "فیلترها نامعتبر هستند",
+        "unauthorized": "شما مجاز به مشاهده این اطلاعات نیستید"
+    }
+}

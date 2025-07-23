@@ -1,0 +1,43 @@
+{
+    "title": "Webinare",
+    "upcoming": "Kommende Webinare",
+    "past": "Vergangene Webinare",
+    "newWebinar": "Neues Webinar",
+    "editWebinar": "Webinar bearbeiten",
+    "deleteWebinar": "Webinar löschen",
+    "webinarTitle": "Titel",
+    "webinarDescription": "Beschreibung",
+    "startTime": "Startzeit",
+    "duration": "Dauer",
+    "maxParticipants": "Maximale Teilnehmer",
+    "meetingLink": "Meeting-Link",
+    "host": "Gastgeber",
+    "participants": "Teilnehmer",
+    "comments": "Kommentare",
+    "newComment": "Neuer Kommentar",
+    "commentContent": "Inhalt",
+    "join": "Beitreten",
+    "leave": "Verlassen",
+    "submit": "Absenden",
+    "cancel": "Abbrechen",
+    "search": "Suchen",
+    "filter": "Filtern",
+    "noWebinars": "Keine Webinare verfügbar",
+    "noComments": "Keine Kommentare verfügbar",
+    "status": {
+        "scheduled": "Geplant",
+        "ongoing": "Laufend",
+        "completed": "Abgeschlossen",
+        "cancelled": "Abgesagt"
+    },
+    "errors": {
+        "fetchWebinarsFailed": "Webinare konnten nicht abgerufen werden",
+        "createWebinarFailed": "Webinar konnte nicht erstellt werden",
+        "updateWebinarFailed": "Webinar konnte nicht aktualisiert werden",
+        "deleteWebinarFailed": "Webinar konnte nicht gelöscht werden",
+        "joinFailed": "Beitritt zum Webinar fehlgeschlagen",
+        "leaveFailed": "Verlassen des Webinars fehlgeschlagen",
+        "fetchCommentsFailed": "Kommentare konnten nicht abgerufen werden",
+        "addCommentFailed": "Kommentar konnte nicht hinzugefügt werden"
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "title": "گفتگوها",
+    "groups": "گروه‌ها",
+    "messages": "پیام‌ها",
+    "newGroup": "گروه جدید",
+    "newMessage": "پیام جدید",
+    "groupName": "نام گروه",
+    "groupDescription": "توضیحات گروه",
+    "messageContent": "محتوا",
+    "send": "ارسال",
+    "join": "پیوستن",
+    "leave": "خروج",
+    "addMember": "افزودن عضو",
+    "removeMember": "حذف عضو",
+    "noGroups": "هیچ گروهی وجود ندارد",
+    "noMessages": "هیچ پیامی وجود ندارد",
+    "roles": {
+        "admin": "مدیر",
+        "member": "عضو"
+    },
+    "errors": {
+        "fetchGroupsFailed": "خطا در دریافت گروه‌ها",
+        "fetchMessagesFailed": "خطا در دریافت پیام‌ها",
+        "createGroupFailed": "خطا در ایجاد گروه",
+        "sendMessageFailed": "خطا در ارسال پیام",
+        "joinFailed": "خطا در پیوستن به گروه",
+        "leaveFailed": "خطا در خروج از گروه",
+        "addMemberFailed": "خطا در افزودن عضو",
+        "removeMemberFailed": "خطا در حذف عضو"
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "title": "المحادثات",
+    "groups": "المجموعات",
+    "messages": "الرسائل",
+    "newGroup": "مجموعة جديدة",
+    "newMessage": "رسالة جديدة",
+    "groupName": "اسم المجموعة",
+    "groupDescription": "وصف المجموعة",
+    "messageContent": "المحتوى",
+    "send": "إرسال",
+    "join": "انضمام",
+    "leave": "مغادرة",
+    "addMember": "إضافة عضو",
+    "removeMember": "إزالة عضو",
+    "noGroups": "لا توجد مجموعات متاحة",
+    "noMessages": "لا توجد رسائل متاحة",
+    "roles": {
+        "admin": "مدير",
+        "member": "عضو"
+    },
+    "errors": {
+        "fetchGroupsFailed": "فشل في جلب المجموعات",
+        "fetchMessagesFailed": "فشل في جلب الرسائل",
+        "createGroupFailed": "فشل في إنشاء المجموعة",
+        "sendMessageFailed": "فشل في إرسال الرسالة",
+        "joinFailed": "فشل في الانضمام إلى المجموعة",
+        "leaveFailed": "فشل في مغادرة المجموعة",
+        "addMemberFailed": "فشل في إضافة العضو",
+        "removeMemberFailed": "فشل في إزالة العضو"
+    }
+}

@@ -1,0 +1,11 @@
+[{
+        "id": 1,
+        "name": "شرکت فناوری نوین",
+        "logo": "/images/partner-1.png"
+    },
+    {
+        "id": 2,
+        "name": "آکادمی برنامه‌نویسی",
+        "logo": "/images/partner-2.png"
+    }
+]

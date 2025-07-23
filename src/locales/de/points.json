@@ -1,0 +1,14 @@
+{
+    "title": "Punkte",
+    "total": "Gesamtpunkte",
+    "history": "Punkteverlauf",
+    "activity": "Aktivität",
+    "amount": "Betrag",
+    "date": "Datum",
+    "description": "Beschreibung",
+    "noPoints": "Keine Punkte vorhanden",
+    "errors": {
+        "fetchFailed": "Punkte konnten nicht abgerufen werden",
+        "addFailed": "Punkte konnten nicht hinzugefügt werden"
+    }
+}

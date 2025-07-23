@@ -1,0 +1,17 @@
+[{
+        "id": 1,
+        "title": "آزمون React.js",
+        "description": "آزمون مقدماتی React.js",
+        "questions": 10,
+        "time": 30,
+        "image": "/images/quiz-1.jpg"
+    },
+    {
+        "id": 2,
+        "title": "آزمون پایتون",
+        "description": "آزمون پیشرفته پایتون",
+        "questions": 15,
+        "time": 45,
+        "image": "/images/quiz-2.jpg"
+    }
+]

@@ -1,0 +1,14 @@
+{
+    "title": "Points",
+    "total": "Total Points",
+    "history": "Points History",
+    "activity": "Activity",
+    "amount": "Amount",
+    "date": "Date",
+    "description": "Description",
+    "noPoints": "No points recorded",
+    "errors": {
+        "fetchFailed": "Failed to fetch points",
+        "addFailed": "Failed to add points"
+    }
+}

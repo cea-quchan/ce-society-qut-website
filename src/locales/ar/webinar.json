@@ -1,0 +1,43 @@
+{
+    "title": "الندوات عبر الإنترنت",
+    "upcoming": "الندوات القادمة",
+    "past": "الندوات السابقة",
+    "newWebinar": "ندوة جديدة",
+    "editWebinar": "تعديل الندوة",
+    "deleteWebinar": "حذف الندوة",
+    "webinarTitle": "العنوان",
+    "webinarDescription": "الوصف",
+    "startTime": "وقت البدء",
+    "duration": "المدة",
+    "maxParticipants": "الحد الأقصى للمشاركين",
+    "meetingLink": "رابط الاجتماع",
+    "host": "المضيف",
+    "participants": "المشاركون",
+    "comments": "التعليقات",
+    "newComment": "تعليق جديد",
+    "commentContent": "المحتوى",
+    "join": "انضمام",
+    "leave": "مغادرة",
+    "submit": "إرسال",
+    "cancel": "إلغاء",
+    "search": "بحث",
+    "filter": "تصفية",
+    "noWebinars": "لا توجد ندوات متاحة",
+    "noComments": "لا توجد تعليقات متاحة",
+    "status": {
+        "scheduled": "مجدولة",
+        "ongoing": "جارية",
+        "completed": "مكتملة",
+        "cancelled": "ملغاة"
+    },
+    "errors": {
+        "fetchWebinarsFailed": "فشل في جلب الندوات",
+        "createWebinarFailed": "فشل في إنشاء الندوة",
+        "updateWebinarFailed": "فشل في تحديث الندوة",
+        "deleteWebinarFailed": "فشل في حذف الندوة",
+        "joinFailed": "فشل في الانضمام إلى الندوة",
+        "leaveFailed": "فشل في مغادرة الندوة",
+        "fetchCommentsFailed": "فشل في جلب التعليقات",
+        "addCommentFailed": "فشل في إضافة التعليق"
+    }
+}

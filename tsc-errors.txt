@@ -1,0 +1,57 @@
+src/middleware/index.ts(37,25): error TS2345: Argument of type 'ApiHandler<T>' is not assignable to parameter of type '(req: NextApiRequest, res: NextApiResponse<T>, user?: any) => Promise<void>'.
+  Types of parameters 'res' and 'res' are incompatible.
+    Type 'NextApiResponse<T>' is not assignable to type 'CustomNextApiResponse<ApiResponse<T>>'.
+      The types returned by 'setHeader(...)' are incompatible between these types.
+        Type 'NextApiResponse<T>' is not assignable to type 'NextApiResponse<ApiResponse<T>>'.
+          Type 'T' is not assignable to type 'ApiResponse<T>'.
+src/middleware/index.ts(37,39): error TS2345: Argument of type 'CustomNextApiResponse<T>' is not assignable to parameter of type 'NextApiResponse<T>'.
+  Types of property 'json' are incompatible.
+    Type '(body: T) => void' is not assignable to type '(body: ApiResponse<T>) => void'.
+      Types of parameters 'body' and 'body' are incompatible.
+        Type 'ApiResponse<T>' is not assignable to type 'T'.
+          'T' could be instantiated with an arbitrary type which could be unrelated to 'ApiResponse<T>'.
+src/middleware/index.ts(39,52): error TS2345: Argument of type 'CustomNextApiResponse<T>' is not assignable to parameter of type 'NextApiResponse<ApiResponse<T>>'.
+  Types of property 'json' are incompatible.
+    Type '(body: T) => void' is not assignable to type '(body: ApiResponse<ApiResponse<T>>) => void'.
+      Types of parameters 'body' and 'body' are incompatible.
+        Type 'ApiResponse<ApiResponse<T>>' is not assignable to type 'T'.
+          'T' could be instantiated with an arbitrary type which could be unrelated to 'ApiResponse<ApiResponse<T>>'.
+src/middleware/index.ts(41,26): error TS2345: Argument of type 'CustomNextApiResponse<T>' is not assignable to parameter of type 'CustomNextApiResponse<ApiResponse<T>>'.
+  Type 'T' is not assignable to type 'ApiResponse<T>'.
+src/middleware/rateLimit.ts(32,27): error TS2345: Argument of type 'CustomNextApiResponse<T>' is not assignable to parameter of type 'CustomNextApiResponse<ApiResponse<T>>'.
+  Type 'T' is not assignable to type 'ApiResponse<T>'.
+src/middleware/rateLimit.ts(54,27): error TS2345: Argument of type 'CustomNextApiResponse<T>' is not assignable to parameter of type 'CustomNextApiResponse<ApiResponse<T>>'.
+  Type 'T' is not assignable to type 'ApiResponse<T>'.
+src/middleware/rateLimit.ts(58,27): error TS2345: Argument of type 'CustomNextApiResponse<T>' is not assignable to parameter of type 'CustomNextApiResponse<ApiResponse<T>>'.
+  Type 'T' is not assignable to type 'ApiResponse<T>'.
+src/middleware/security.ts(110,26): error TS2345: Argument of type 'CustomNextApiResponse<T>' is not assignable to parameter of type 'CustomNextApiResponse<ApiResponse<T>>'.
+  Type 'T' is not assignable to type 'ApiResponse<T>'.
+src/pages/api/create.ts(77,50): error TS2741: Property 'success' is missing in type '{ name: string; id: string; email: string; image: string | null; role: string; points: number; createdAt: Date; }' but required in type 'ApiResponse<unknown>'.
+src/pages/api/payment/verify.ts(72,50): error TS2741: Property 'success' is missing in type '{ status: string; type: string; id: string; createdAt: Date; updatedAt: Date; userId: string; description: string | null; amount: number; }' but required in type 'ApiResponse<unknown>'.
+src/pages/api/reports/index.ts(68,54): error TS2741: Property 'success' is missing in type '({ reporter: { name: string; id: string; image: string | null; role: string; }; } & { status: string; type: string; id: string; createdAt: Date; updatedAt: Date; description: string | null; ... 4 more ...; reporterId: string; })[]' but required in type 'ApiResponse<unknown>'.
+src/pages/api/reports/index.ts(138,54): error TS2322: Type '{ reporter: { name: string; id: string; image: string | null; role: string; }; } & { status: string; type: string; id: string; createdAt: Date; updatedAt: Date; description: string | null; ... 4 more ...; reporterId: string; }' is not assignable to type 'ApiResponse<unknown> | undefined'.
+  Property 'success' is missing in type '{ reporter: { name: string; id: string; image: string | null; role: string; }; } & { status: string; type: string; id: string; createdAt: Date; updatedAt: Date; description: string | null; ... 4 more ...; reporterId: string; }' but required in type 'ApiResponse<unknown>'.
+src/pages/api/reports/index.ts(209,54): error TS2322: Type '{ reporter: { name: string; id: string; image: string | null; role: string; }; } & { status: string; type: string; id: string; createdAt: Date; updatedAt: Date; description: string | null; ... 4 more ...; reporterId: string; }' is not assignable to type 'ApiResponse<unknown> | undefined'.
+  Property 'success' is missing in type '{ reporter: { name: string; id: string; image: string | null; role: string; }; } & { status: string; type: string; id: string; createdAt: Date; updatedAt: Date; description: string | null; ... 4 more ...; reporterId: string; }' but required in type 'ApiResponse<unknown>'.
+src/pages/api/user/profile.ts(47,54): error TS2741: Property 'success' is missing in type '{ name: string; id: string; email: string; role: string; createdAt: Date; updatedAt: Date; }' but required in type 'ApiResponse<{ id: string; name: string; email: string; role: string; createdAt: Date; updatedAt: Date; }>'.
+src/pages/api/user/profile.ts(100,56): error TS2741: Property 'success' is missing in type '{ name: string; id: string; email: string; role: string; createdAt: Date; updatedAt: Date; }' but required in type 'ApiResponse<{ id: string; name: string; email: string; role: string; createdAt: Date; updatedAt: Date; }>'.
+src/pages/api/users/profile.ts(71,54): error TS2741: Property 'success' is missing in type 'UserProfile' but required in type 'ApiResponse<UserProfile>'.
+src/pages/api/users/profile.ts(163,54): error TS2741: Property 'success' is missing in type 'UserProfile' but required in type 'ApiResponse<UserProfile>'.
+src/pages/api/users/profile.ts(191,3): error TS2345: Argument of type '(req: NextApiRequest, res: NextApiResponse<ApiResponse<UserProfile>>) => Promise<void>' is not assignable to parameter of type 'ApiHandler<UserProfile>'.
+  Types of parameters 'res' and 'res' are incompatible.
+    Type 'CustomNextApiResponse<ApiResponse<UserProfile>>' is not assignable to type 'NextApiResponse<ApiResponse<UserProfile>>'.
+      Types of property 'json' are incompatible.
+        Type '(body: ApiResponse<UserProfile>) => void' is not assignable to type '(body: ApiResponse<ApiResponse<UserProfile>>) => void'.
+          Types of parameters 'body' and 'body' are incompatible.
+            Type 'ApiResponse<ApiResponse<UserProfile>>' is not assignable to type 'ApiResponse<UserProfile>'.
+              Type 'ApiResponse<UserProfile>' is missing the following properties from type 'UserProfile': id, name, email, role, and 3 more.
+src/pages/api/webinars/[id].ts(53,54): error TS2741: Property 'success' is missing in type '{ id: string; createdAt: Date; updatedAt: Date; title: string; description: string; startDate: Date; endDate: Date; maxParticipants: number; currentParticipants: number; meetingLink: string | null; recordingLink: string | null; hostId: string; }' but required in type 'ApiResponse<unknown>'.
+src/pages/api/webinars/[id].ts(110,54): error TS2322: Type '{ host: { name: string; id: string; image: string | null; }; participants: { id: string; userId: string; }[]; } & { id: string; createdAt: Date; updatedAt: Date; title: string; description: string; ... 6 more ...; hostId: string; }' is not assignable to type 'ApiResponse<unknown> | undefined'.
+src/server/routes/payment.ts(6,24): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response) => Response<any, Record<string, any>> | undefined' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>) => Response<...> | undefined' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.
+src/server/routes/payment.ts(31,24): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type '(req: Request, res: Response) => Response<any, Record<string, any>> | undefined' is not assignable to parameter of type 'Application<Record<string, any>>'.
+      Type '(req: Request<ParamsDictionary, any, any, ParsedQs, Record<string, any>>, res: Response<any, Record<string, any>>) => Response<...> | undefined' is missing the following properties from type 'Application<Record<string, any>>': init, defaultConfiguration, engine, set, and 63 more.

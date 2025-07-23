@@ -1,0 +1,38 @@
+{
+    "title": "Competitions",
+    "active": "Active Competitions",
+    "upcoming": "Upcoming Competitions",
+    "past": "Past Competitions",
+    "newCompetition": "New Competition",
+    "editCompetition": "Edit Competition",
+    "deleteCompetition": "Delete Competition",
+    "competitionTitle": "Title",
+    "competitionDescription": "Description",
+    "startDate": "Start Date",
+    "endDate": "End Date",
+    "prizes": "Prizes",
+    "rules": "Rules",
+    "participants": "Participants",
+    "submissions": "Submissions",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "search": "Search",
+    "filter": "Filter",
+    "noCompetitions": "No competitions available",
+    "status": {
+        "upcoming": "Upcoming",
+        "active": "Active",
+        "completed": "Completed",
+        "cancelled": "Cancelled"
+    },
+    "errors": {
+        "fetchCompetitionsFailed": "Failed to fetch competitions",
+        "createCompetitionFailed": "Failed to create competition",
+        "updateCompetitionFailed": "Failed to update competition",
+        "deleteCompetitionFailed": "Failed to delete competition",
+        "submitFailed": "Failed to submit answer",
+        "alreadySubmitted": "You have already submitted your answer",
+        "competitionClosed": "This competition has ended",
+        "competitionCancelled": "This competition has been cancelled"
+    }
+}

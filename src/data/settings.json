@@ -1,0 +1,14 @@
+{
+  "theme": "light",
+  "language": "fa",
+  "notifications": {
+    "email": true,
+    "push": true,
+    "sms": false
+  },
+  "privacy": {
+    "profileVisibility": "public",
+    "showEmail": false,
+    "showPhone": false
+  }
+} 

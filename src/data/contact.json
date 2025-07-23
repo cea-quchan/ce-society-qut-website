@@ -1,0 +1,10 @@
+{
+    "address": "تهران، خیابان ولیعصر",
+    "phone": "021-12345678",
+    "email": "info@example.com",
+    "socialMedia": {
+        "instagram": "https://instagram.com/example",
+        "telegram": "https://t.me/example",
+        "linkedin": "https://linkedin.com/company/example"
+    }
+}

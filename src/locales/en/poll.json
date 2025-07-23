@@ -1,0 +1,35 @@
+{
+    "title": "Polls",
+    "active": "Active Polls",
+    "closed": "Closed Polls",
+    "newPoll": "New Poll",
+    "editPoll": "Edit Poll",
+    "deletePoll": "Delete Poll",
+    "pollTitle": "Title",
+    "pollDescription": "Description",
+    "options": "Options",
+    "newOption": "New Option",
+    "endDate": "End Date",
+    "creator": "Creator",
+    "votes": "Votes",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "search": "Search",
+    "filter": "Filter",
+    "noPolls": "No polls available",
+    "status": {
+        "active": "Active",
+        "closed": "Closed",
+        "cancelled": "Cancelled"
+    },
+    "errors": {
+        "fetchPollsFailed": "Failed to fetch polls",
+        "createPollFailed": "Failed to create poll",
+        "updatePollFailed": "Failed to update poll",
+        "deletePollFailed": "Failed to delete poll",
+        "submitVoteFailed": "Failed to submit vote",
+        "alreadyVoted": "You have already voted in this poll",
+        "pollClosed": "This poll is closed",
+        "pollCancelled": "This poll is cancelled"
+    }
+}

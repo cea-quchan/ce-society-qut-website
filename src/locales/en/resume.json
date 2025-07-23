@@ -1,0 +1,31 @@
+{
+    "title": "Resume Builder",
+    "create": "Create Resume",
+    "edit": "Edit Resume",
+    "delete": "Delete Resume",
+    "download": "Download Resume",
+    "preview": "Preview",
+    "personalInfo": "Personal Information",
+    "education": "Education",
+    "experience": "Work Experience",
+    "skills": "Skills",
+    "projects": "Projects",
+    "certificates": "Certificates",
+    "languages": "Languages",
+    "interests": "Interests",
+    "references": "References",
+    "templates": "Templates",
+    "save": "Save",
+    "cancel": "Cancel",
+    "noResumes": "No resumes available",
+    "errors": {
+        "fetchResumesFailed": "Failed to fetch resumes",
+        "createResumeFailed": "Failed to create resume",
+        "updateResumeFailed": "Failed to update resume",
+        "deleteResumeFailed": "Failed to delete resume",
+        "downloadFailed": "Failed to download resume",
+        "previewFailed": "Failed to preview resume",
+        "invalidTemplate": "Invalid template",
+        "invalidData": "Invalid data"
+    }
+}

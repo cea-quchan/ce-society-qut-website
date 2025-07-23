@@ -1,0 +1,35 @@
+{
+    "title": "الاستطلاعات",
+    "active": "الاستطلاعات النشطة",
+    "closed": "الاستطلاعات المغلقة",
+    "newPoll": "استطلاع جديد",
+    "editPoll": "تعديل الاستطلاع",
+    "deletePoll": "حذف الاستطلاع",
+    "pollTitle": "العنوان",
+    "pollDescription": "الوصف",
+    "options": "الخيارات",
+    "newOption": "خيار جديد",
+    "endDate": "تاريخ الانتهاء",
+    "creator": "المنشئ",
+    "votes": "الأصوات",
+    "submit": "إرسال",
+    "cancel": "إلغاء",
+    "search": "بحث",
+    "filter": "تصفية",
+    "noPolls": "لا توجد استطلاعات متاحة",
+    "status": {
+        "active": "نشط",
+        "closed": "مغلق",
+        "cancelled": "ملغي"
+    },
+    "errors": {
+        "fetchPollsFailed": "فشل في جلب الاستطلاعات",
+        "createPollFailed": "فشل في إنشاء الاستطلاع",
+        "updatePollFailed": "فشل في تحديث الاستطلاع",
+        "deletePollFailed": "فشل في حذف الاستطلاع",
+        "submitVoteFailed": "فشل في إرسال التصويت",
+        "alreadyVoted": "لقد قمت بالتصويت في هذا الاستطلاع بالفعل",
+        "pollClosed": "هذا الاستطلاع مغلق",
+        "pollCancelled": "هذا الاستطلاع ملغي"
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "title": "Sondages",
+    "active": "Sondages actifs",
+    "closed": "Sondages fermés",
+    "newPoll": "Nouveau sondage",
+    "editPoll": "Modifier le sondage",
+    "deletePoll": "Supprimer le sondage",
+    "pollTitle": "Titre",
+    "pollDescription": "Description",
+    "options": "Options",
+    "newOption": "Nouvelle option",
+    "endDate": "Date de fin",
+    "creator": "Créateur",
+    "votes": "Votes",
+    "submit": "Soumettre",
+    "cancel": "Annuler",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "noPolls": "Aucun sondage disponible",
+    "status": {
+        "active": "Actif",
+        "closed": "Fermé",
+        "cancelled": "Annulé"
+    },
+    "errors": {
+        "fetchPollsFailed": "Impossible de récupérer les sondages",
+        "createPollFailed": "Impossible de créer le sondage",
+        "updatePollFailed": "Impossible de mettre à jour le sondage",
+        "deletePollFailed": "Impossible de supprimer le sondage",
+        "submitVoteFailed": "Impossible de soumettre le vote",
+        "alreadyVoted": "Vous avez déjà voté dans ce sondage",
+        "pollClosed": "Ce sondage est fermé",
+        "pollCancelled": "Ce sondage est annulé"
+    }
+}

@@ -1,0 +1,43 @@
+{
+    "title": "وبینارها",
+    "upcoming": "وبینارهای پیش رو",
+    "past": "وبینارهای گذشته",
+    "newWebinar": "وبینار جدید",
+    "editWebinar": "ویرایش وبینار",
+    "deleteWebinar": "حذف وبینار",
+    "webinarTitle": "عنوان",
+    "webinarDescription": "توضیحات",
+    "startTime": "زمان شروع",
+    "duration": "مدت زمان",
+    "maxParticipants": "حداکثر شرکت‌کنندگان",
+    "meetingLink": "لینک جلسه",
+    "host": "میزبان",
+    "participants": "شرکت‌کنندگان",
+    "comments": "نظرات",
+    "newComment": "نظر جدید",
+    "commentContent": "محتوا",
+    "join": "پیوستن",
+    "leave": "خروج",
+    "submit": "ثبت",
+    "cancel": "انصراف",
+    "search": "جستجو",
+    "filter": "فیلتر",
+    "noWebinars": "هیچ وبیناری وجود ندارد",
+    "noComments": "هیچ نظری وجود ندارد",
+    "status": {
+        "scheduled": "برنامه‌ریزی شده",
+        "ongoing": "در حال برگزاری",
+        "completed": "پایان یافته",
+        "cancelled": "لغو شده"
+    },
+    "errors": {
+        "fetchWebinarsFailed": "خطا در دریافت وبینارها",
+        "createWebinarFailed": "خطا در ایجاد وبینار",
+        "updateWebinarFailed": "خطا در ویرایش وبینار",
+        "deleteWebinarFailed": "خطا در حذف وبینار",
+        "joinFailed": "خطا در پیوستن به وبینار",
+        "leaveFailed": "خطا در خروج از وبینار",
+        "fetchCommentsFailed": "خطا در دریافت نظرات",
+        "addCommentFailed": "خطا در افزودن نظر"
+    }
+}

@@ -1,0 +1,763 @@
+
+./src/app/api/health/route.ts
+75:16  Error: A `require()` style import is forbidden.  @typescript-eslint/no-require-imports
+76:11  Warning: 'path' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+76:18  Error: A `require()` style import is forbidden.  @typescript-eslint/no-require-imports
+
+./src/components/admin/AdminHeader.tsx
+11:52  Warning: 'onMenuClick' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/admin/AdminPanelFooter.tsx
+2:27  Warning: 'Card' is defined but never used.  @typescript-eslint/no-unused-vars
+2:33  Warning: 'CardContent' is defined but never used.  @typescript-eslint/no-unused-vars
+3:8  Warning: 'PeopleIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+4:8  Warning: 'ArrowUpwardIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/admin/Breadcrumbs.tsx
+12:3  Warning: 'Divider' is defined but never used.  @typescript-eslint/no-unused-vars
+17:3  Warning: 'Fade' is defined but never used.  @typescript-eslint/no-unused-vars
+23:15  Warning: 'MoreVertIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+45:29  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+78:30  Warning: 'index' is defined but never used.  @typescript-eslint/no-unused-vars
+146:3  Warning: 'color' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/admin/ErrorHandling.tsx
+10:3  Warning: 'Collapse' is defined but never used.  @typescript-eslint/no-unused-vars
+15:3  Warning: 'Divider' is defined but never used.  @typescript-eslint/no-unused-vars
+16:3  Warning: 'Card' is defined but never used.  @typescript-eslint/no-unused-vars
+17:3  Warning: 'CardContent' is defined but never used.  @typescript-eslint/no-unused-vars
+18:3  Warning: 'Grid' is defined but never used.  @typescript-eslint/no-unused-vars
+144:9  Warning: 'isMobile' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+536:29  Warning: 'field' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/admin/LoadingStates.tsx
+18:3  Warning: 'Chip' is defined but never used.  @typescript-eslint/no-unused-vars
+19:3  Warning: 'Avatar' is defined but never used.  @typescript-eslint/no-unused-vars
+31:15  Warning: 'DownloadIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+32:13  Warning: 'UploadIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+307:9  Warning: 'theme' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/admin/ModalSystem.tsx
+11:3  Warning: 'Paper' is defined but never used.  @typescript-eslint/no-unused-vars
+12:3  Warning: 'Divider' is defined but never used.  @typescript-eslint/no-unused-vars
+15:3  Warning: 'Chip' is defined but never used.  @typescript-eslint/no-unused-vars
+24:3  Warning: 'Radio' is defined but never used.  @typescript-eslint/no-unused-vars
+25:3  Warning: 'RadioGroup' is defined but never used.  @typescript-eslint/no-unused-vars
+28:3  Warning: 'Rating' is defined but never used.  @typescript-eslint/no-unused-vars
+33:3  Warning: 'ListItemIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+34:3  Warning: 'ListItemSecondaryAction' is defined but never used.  @typescript-eslint/no-unused-vars
+35:3  Warning: 'Accordion' is defined but never used.  @typescript-eslint/no-unused-vars
+36:3  Warning: 'AccordionSummary' is defined but never used.  @typescript-eslint/no-unused-vars
+37:3  Warning: 'AccordionDetails' is defined but never used.  @typescript-eslint/no-unused-vars
+38:3  Warning: 'Tabs' is defined but never used.  @typescript-eslint/no-unused-vars
+39:3  Warning: 'Tab' is defined but never used.  @typescript-eslint/no-unused-vars
+40:3  Warning: 'Stepper' is defined but never used.  @typescript-eslint/no-unused-vars
+41:3  Warning: 'Step' is defined but never used.  @typescript-eslint/no-unused-vars
+42:3  Warning: 'StepLabel' is defined but never used.  @typescript-eslint/no-unused-vars
+43:3  Warning: 'StepContent' is defined but never used.  @typescript-eslint/no-unused-vars
+53:17  Warning: 'ExpandMoreIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+54:13  Warning: 'DeleteIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+55:11  Warning: 'EditIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+56:17  Warning: 'VisibilityIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+57:15  Warning: 'DownloadIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+58:13  Warning: 'UploadIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+59:15  Warning: 'SettingsIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+60:13  Warning: 'PersonIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+61:12  Warning: 'GroupIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+62:15  Warning: 'CategoryIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+63:16  Warning: 'DateRangeIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+81:36  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+108:24  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+109:18  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+137:59  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+140:10  Warning: 'activeStep' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+140:22  Warning: 'setActiveStep' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+141:10  Warning: 'activeTab' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+141:21  Warning: 'setActiveTab' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+146:41  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+181:50  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+235:45  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+479:49  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/components/admin/ResponsiveLayout.tsx
+18:3  Warning: 'Card' is defined but never used.  @typescript-eslint/no-unused-vars
+19:3  Warning: 'CardContent' is defined but never used.  @typescript-eslint/no-unused-vars
+21:3  Warning: 'Slide' is defined but never used.  @typescript-eslint/no-unused-vars
+90:9  Warning: 'isTablet' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/admin/SortingSystem.tsx
+19:3  Warning: 'Sort' is defined but never used.  @typescript-eslint/no-unused-vars
+21:3  Warning: 'DateRange' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/common/Breadcrumbs.tsx
+35:59  Warning: 'showHome' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/common/LanguageToggle.tsx
+12:8  Warning: 'TranslateIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/common/SchemaMarkup.tsx
+5:18  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/components/courses/CourseCard.tsx
+14:36  Warning: 'theme' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/DashboardSidebar.tsx
+8:3  Warning: 'Divider' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/events/EventCard.tsx
+14:36  Warning: 'theme' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/Footer.tsx
+4:56  Warning: 'Divider' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/Header.tsx
+7:10  Warning: 'FaTelegramPlane' is defined but never used.  @typescript-eslint/no-unused-vars
+7:27  Warning: 'FaInstagram' is defined but never used.  @typescript-eslint/no-unused-vars
+7:40  Warning: 'FaLinkedinIn' is defined but never used.  @typescript-eslint/no-unused-vars
+7:54  Warning: 'FaGithub' is defined but never used.  @typescript-eslint/no-unused-vars
+7:64  Warning: 'FaDiscord' is defined but never used.  @typescript-eslint/no-unused-vars
+24:11  Warning: 't' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/Layout.tsx
+4:10  Warning: 'Box' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/Navbar.tsx
+14:3  Warning: 'useMediaQuery' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/ui/AnimatedButton.tsx
+6:40  Warning: 'theme' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/components/ui/CourseCard.tsx
+3:71  Warning: 'Rating' is defined but never used.  @typescript-eslint/no-unused-vars
+11:36  Warning: 'theme' is defined but never used.  @typescript-eslint/no-unused-vars
+45:46  Warning: 'theme' is defined but never used.  @typescript-eslint/no-unused-vars
+68:35  Warning: 'theme' is defined but never used.  @typescript-eslint/no-unused-vars
+91:36  Warning: 'theme' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/context/AuthContext.tsx
+1:54  Warning: 'useEffect' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/hooks/useModal.ts
+37:13  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+38:37  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+77:15  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/lib/logger.ts
+3:10  Warning: 'format' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/mongoose.ts
+11:3  Error: Unexpected var, use let or const instead.  no-var
+
+./src/lib/redis.ts
+2:10  Warning: 'logger' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/s3.ts
+2:10  Warning: 'getSignedUrl' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/lib/storage.ts
+7:10  Warning: 'FileUpload' is defined but never used.  @typescript-eslint/no-unused-vars
+8:10  Warning: 'IncomingMessage' is defined but never used.  @typescript-eslint/no-unused-vars
+34:7  Warning: 'uploadToS3' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+58:7  Warning: 'uploadToLocal' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+89:45  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/middleware/auth.ts
+4:10  Warning: 'AuthenticationError' is defined but never used.  @typescript-eslint/no-unused-vars
+4:31  Warning: 'AuthorizationError' is defined but never used.  @typescript-eslint/no-unused-vars
+24:35  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+70:15  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+87:36  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+88:41  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+89:35  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+90:43  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/middleware/base.ts
+16:10  Warning: 'withApiMiddleware' is defined but never used.  @typescript-eslint/no-unused-vars
+25:3  Warning: 'next' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/middleware/csp.ts
+2:10  Warning: 'ApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/middleware/csrf.ts
+2:10  Warning: 'ApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/middleware/error.ts
+15:46  Warning: 'ErrorMiddleware' is defined but never used.  @typescript-eslint/no-unused-vars
+17:10  Warning: 'createErrorResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+23:3  Warning: 'next' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/middleware/fileValidation.ts
+2:10  Warning: 'ApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+4:8  Warning: 'formidable' is defined but never used.  @typescript-eslint/no-unused-vars
+5:10  Warning: 'createHash' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/middleware/index.ts
+7:10  Warning: 'withErrorHandler' is defined but never used.  @typescript-eslint/no-unused-vars
+8:10  Warning: 'ApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+11:7  Warning: 'applyMiddleware' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+17:32  Warning: 'reject' is defined but never used.  @typescript-eslint/no-unused-vars
+92:19  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/middleware/logger.ts
+2:10  Warning: 'ApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+28:23  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+39:23  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/middleware/logging.ts
+6:17  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+6:33  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+6:49  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+12:38  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+35:33  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+35:49  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+35:65  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+71:43  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/middleware/notification.ts
+2:10  Warning: 'ApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/middleware/rateLimit.ts
+2:10  Warning: 'ApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+24:12  Warning: 'e' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/middleware/security.ts
+5:8  Warning: 'helmet' is defined but never used.  @typescript-eslint/no-unused-vars
+34:7  Warning: 'sanitizeInput' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+43:7  Warning: 'validateRequest' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+67:30  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+67:36  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+81:22  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/middleware/validation.ts
+6:10  Warning: 'AppError' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/about.tsx
+7:8  Warning: 'ErrorBoundary' is defined but never used.  @typescript-eslint/no-unused-vars
+9:50  Warning: 'CardContent' is defined but never used.  @typescript-eslint/no-unused-vars
+9:71  Warning: 'List' is defined but never used.  @typescript-eslint/no-unused-vars
+9:77  Warning: 'ListItem' is defined but never used.  @typescript-eslint/no-unused-vars
+9:87  Warning: 'ListItemAvatar' is defined but never used.  @typescript-eslint/no-unused-vars
+9:103  Warning: 'ListItemText' is defined but never used.  @typescript-eslint/no-unused-vars
+35:7  Warning: 'teamMembers' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+56:7  Warning: 'achievements' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/api/admin/notifications/index.ts
+7:10  Warning: 'ApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+60:22  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/pages/api/admin/users/index.ts
+7:10  Warning: 'ApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+43:22  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/pages/api/analytics/index.ts
+14:67  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+149:15  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/pages/api/articles/index.ts
+56:15  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/pages/api/articles/[id].ts
+115:12  Warning: 'error' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/api/backup/index.ts
+8:10  Warning: 'join' is defined but never used.  @typescript-eslint/no-unused-vars
+11:7  Warning: 'execAsync' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+13:7  Warning: 'backupSchema' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+19:6  Warning: 'BackupData' is defined but never used.  @typescript-eslint/no-unused-vars
+28:6  Warning: 'DeleteResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/api/chat/messages.ts
+23:13  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/pages/api/comments/index.ts
+7:7  Warning: 'commentSchema' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+14:6  Warning: 'CommentData' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/api/competitions/index.ts
+33:6  Warning: 'CompetitionsResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+119:57  Warning: 'location' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/api/competitions/participants.ts
+19:6  Warning: 'ParticipantsResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/api/competitions/[id]/participate.ts
+106:12  Warning: 'error' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/api/competitions/[id]/winners.ts
+178:12  Warning: 'error' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/api/competitions/[id].ts
+6:6  Warning: 'CompetitionData' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/api/courses/index.ts
+24:20  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/pages/api/courses/[id].ts
+1:31  Warning: 'NextApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+70:18  Warning: 'e' is defined but never used.  @typescript-eslint/no-unused-vars
+87:18  Warning: 'e' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/api/create.ts
+4:10  Warning: 'withAuth' is defined but never used.  @typescript-eslint/no-unused-vars
+5:10  Warning: 'withRateLimit' is defined but never used.  @typescript-eslint/no-unused-vars
+6:10  Warning: 'withSecurity' is defined but never used.  @typescript-eslint/no-unused-vars
+11:10  Warning: 'createApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+11:29  Warning: 'createErrorResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+27:80  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+29:43  Warning: 'user' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/api/events/index.ts
+2:10  Warning: 'ApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+13:7  Warning: 'eventSchema' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+54:6  Warning: 'EventsResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+61:6  Warning: 'DeleteResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/api/events/[id]/participants/index.ts
+2:10  Warning: 'ApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+2:23  Warning: 'CustomNextApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+4:10  Warning: 'getServerSession' is defined but never used.  @typescript-eslint/no-unused-vars
+5:10  Warning: 'authOptions' is defined but never used.  @typescript-eslint/no-unused-vars
+89:22  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/pages/api/events/[id]/register.ts
+4:10  Warning: 'ApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+8:6  Warning: 'RegisterResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+92:11  Warning: 'participant' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/api/events/[id].ts
+2:10  Warning: 'ApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+33:6  Warning: 'DeleteResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+159:18  Warning: 'e' is defined but never used.  @typescript-eslint/no-unused-vars
+187:18  Warning: 'e' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/api/export/index.ts
+13:10  Warning: 'ApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+13:23  Warning: 'ApiError' is defined but never used.  @typescript-eslint/no-unused-vars
+13:33  Warning: 'ErrorCode' is defined but never used.  @typescript-eslint/no-unused-vars
+22:67  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+62:19  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+185:24  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/pages/api/faq/index.ts
+6:23  Warning: 'ErrorCode' is defined but never used.  @typescript-eslint/no-unused-vars
+6:34  Warning: 'CustomNextApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/api/gallery/index.ts
+4:10  Warning: 'ApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+4:23  Warning: 'CustomNextApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+4:57  Warning: 'PaginatedResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+5:10  Warning: 'getServerSession' is defined but never used.  @typescript-eslint/no-unused-vars
+6:10  Warning: 'authOptions' is defined but never used.  @typescript-eslint/no-unused-vars
+7:10  Warning: 'withAuth' is defined but never used.  @typescript-eslint/no-unused-vars
+8:10  Warning: 'withRateLimit' is defined but never used.  @typescript-eslint/no-unused-vars
+12:11  Warning: 'GalleryItem' is defined but never used.  @typescript-eslint/no-unused-vars
+27:7  Warning: 'galleryItemSchema' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+100:40  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/pages/api/gallery/reorder.ts
+23:12  Warning: 'error' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/api/gallery/[id].ts
+6:10  Warning: 'ApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+6:23  Warning: 'CustomNextApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+159:18  Warning: 'e' is defined but never used.  @typescript-eslint/no-unused-vars
+187:25  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/pages/api/import/index.ts
+68:38  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+79:38  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/pages/api/library/index.ts
+6:10  Warning: 'ApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/api/library/[id].ts
+6:10  Warning: 'ApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/api/likes/index.ts
+3:10  Warning: 'ApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+3:23  Warning: 'ApiError' is defined but never used.  @typescript-eslint/no-unused-vars
+5:6  Warning: 'LikeData' is defined but never used.  @typescript-eslint/no-unused-vars
+25:15  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/pages/api/logs/index.ts
+4:10  Warning: 'ErrorCode' is defined but never used.  @typescript-eslint/no-unused-vars
+10:7  Warning: 'dateRangeSchema' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+20:14  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+43:18  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/pages/api/media/index.ts
+3:10  Warning: 'ApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+3:23  Warning: 'MediaResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+4:10  Warning: 'withErrorHandling' is defined but never used.  @typescript-eslint/no-unused-vars
+8:10  Warning: 'getServerSession' is defined but never used.  @typescript-eslint/no-unused-vars
+9:10  Warning: 'authOptions' is defined but never used.  @typescript-eslint/no-unused-vars
+10:10  Warning: 'AppError' is defined but never used.  @typescript-eslint/no-unused-vars
+32:67  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+41:22  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/pages/api/members/index.ts
+3:10  Warning: 'ApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+3:23  Warning: 'ErrorCode' is defined but never used.  @typescript-eslint/no-unused-vars
+18:16  Warning: 'error' is defined but never used.  @typescript-eslint/no-unused-vars
+38:16  Warning: 'error' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/api/messages/index.ts
+10:10  Warning: 'Prisma' is defined but never used.  @typescript-eslint/no-unused-vars
+35:77  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+267:25  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/pages/api/news/[id]/publish.ts
+42:27  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+63:23  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/pages/api/notifications/index.ts
+7:10  Warning: 'ApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+7:23  Warning: 'CustomNextApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+9:67  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+18:22  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+140:22  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/pages/api/notifications/[id]/index.ts
+7:10  Warning: 'ApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+7:23  Warning: 'CustomNextApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+14:67  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/pages/api/notifications/[id]/read.ts
+7:10  Warning: 'ApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+7:23  Warning: 'CustomNextApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+9:67  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/pages/api/payment/index.ts
+7:10  Warning: 'ApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+7:23  Warning: 'ErrorCode' is defined but never used.  @typescript-eslint/no-unused-vars
+9:6  Warning: 'PaymentData' is defined but never used.  @typescript-eslint/no-unused-vars
+20:67  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/pages/api/payment/verify.ts
+1:26  Warning: 'NextApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+9:86  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/pages/api/podcasts/%5Bid%5D.ts
+2:11  Warning: 'id' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/api/podcasts/index.ts
+3:10  Warning: 'prisma' is defined but never used.  @typescript-eslint/no-unused-vars
+4:10  Warning: 'getServerSession' is defined but never used.  @typescript-eslint/no-unused-vars
+5:10  Warning: 'authOptions' is defined but never used.  @typescript-eslint/no-unused-vars
+7:7  Warning: 'podcastSchema' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/api/podcasts/[id].ts
+3:10  Warning: 'prisma' is defined but never used.  @typescript-eslint/no-unused-vars
+4:10  Warning: 'getServerSession' is defined but never used.  @typescript-eslint/no-unused-vars
+5:10  Warning: 'authOptions' is defined but never used.  @typescript-eslint/no-unused-vars
+7:7  Warning: 'updatePodcastSchema' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/api/polls/submit.ts
+3:10  Warning: 'ApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/api/reports/index.ts
+1:26  Warning: 'NextApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+19:86  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+40:22  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/pages/api/restore/index.ts
+3:10  Warning: 'ApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+3:23  Warning: 'ApiError' is defined but never used.  @typescript-eslint/no-unused-vars
+8:10  Warning: 'logger' is defined but never used.  @typescript-eslint/no-unused-vars
+15:10  Warning: 'join' is defined but never used.  @typescript-eslint/no-unused-vars
+17:7  Warning: 'execAsync' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+19:7  Warning: 'restoreSchema' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+26:73  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+28:43  Warning: 'user' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/api/settings/index.ts
+1:26  Warning: 'NextApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+50:73  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/pages/api/upload.ts
+3:10  Warning: 'ApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+37:32  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/pages/api/user/competitions.ts
+3:10  Warning: 'ApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/api/user/courses.ts
+3:10  Warning: 'ApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/api/user/password.ts
+7:10  Warning: 'createErrorResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/api/user/payments.ts
+45:51  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/pages/api/users/notifications.ts
+8:10  Warning: 'ApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/api/users/profile.ts
+10:87  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+62:27  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/pages/api/users/suggestions.ts
+7:10  Warning: 'ApiResponse' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/api/users/[id].ts
+56:27  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+69:14  Warning: 'error' is defined but never used.  @typescript-eslint/no-unused-vars
+89:14  Warning: 'error' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/api/webinars/index.ts
+31:75  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+32:81  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+64:51  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+122:43  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/pages/api/webinars/[id].ts
+78:27  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/pages/competitions.tsx
+70:52  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+88:16  Warning: 'err' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/contact.tsx
+2:10  Warning: 'motion' is defined but never used.  @typescript-eslint/no-unused-vars
+3:8  Warning: 'Head' is defined but never used.  @typescript-eslint/no-unused-vars
+4:10  Warning: 'useTheme' is defined but never used.  @typescript-eslint/no-unused-vars
+15:3  Warning: 'Card' is defined but never used.  @typescript-eslint/no-unused-vars
+16:3  Warning: 'CardContent' is defined but never used.  @typescript-eslint/no-unused-vars
+17:3  Warning: 'Stack' is defined but never used.  @typescript-eslint/no-unused-vars
+19:3  Warning: 'alpha' is defined but never used.  @typescript-eslint/no-unused-vars
+26:8  Warning: 'SendIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+27:8  Warning: 'ContactSupportIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+38:8  Warning: 'AnimatedButton' is defined but never used.  @typescript-eslint/no-unused-vars
+39:8  Warning: 'nextI18NextConfig' is defined but never used.  @typescript-eslint/no-unused-vars
+75:9  Warning: 'muiTheme' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+76:11  Warning: 't' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+84:26  Warning: 'isSubmitting' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+151:9  Warning: 'socialLinks' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+158:9  Warning: 'containerVariants' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+168:9  Warning: 'itemVariants' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/courses.tsx
+2:10  Warning: 'motion' is defined but never used.  @typescript-eslint/no-unused-vars
+3:8  Warning: 'Head' is defined but never used.  @typescript-eslint/no-unused-vars
+5:8  Warning: 'AnimatedButton' is defined but never used.  @typescript-eslint/no-unused-vars
+6:21  Warning: 'MenuItem' is defined but never used.  @typescript-eslint/no-unused-vars
+7:8  Warning: 'SchoolIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+8:8  Warning: 'AccessTimeIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+9:8  Warning: 'PeopleIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+10:8  Warning: 'EmojiEventsIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+11:8  Warning: 'FilterListIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+16:8  Warning: 'Image' is defined but never used.  @typescript-eslint/no-unused-vars
+55:7  Warning: 'courses' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+103:7  Warning: 'categories' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+112:7  Warning: 'levels' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+153:11  Warning: 'theme' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+154:28  Warning: 'setSelectedCategory' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+155:25  Warning: 'setSelectedLevel' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+157:11  Warning: 't' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+158:19  Warning: 'setCourses' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+159:21  Warning: 'setIsLoading' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/dashboard/admin/courses.tsx
+109:48  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+141:69  Warning: 'child' is defined but never used.  @typescript-eslint/no-unused-vars
+145:37  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+186:14  Warning: 'e' is defined but never used.  @typescript-eslint/no-unused-vars
+258:37  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/pages/dashboard/admin/events.tsx
+91:42  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+123:36  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+163:14  Warning: 'e' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/dashboard/admin/gallery.tsx
+155:19  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+236:19  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+242:9  Warning: 'handleDragEnd' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+265:19  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+300:31  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+340:15  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+368:15  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/pages/dashboard/admin/index.tsx
+2:73  Warning: 'Paper' is defined but never used.  @typescript-eslint/no-unused-vars
+16:86  Warning: 'BarChart' is defined but never used.  @typescript-eslint/no-unused-vars
+16:96  Warning: 'Bar' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/dashboard/admin/messages.tsx
+91:32  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+94:32  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+113:14  Warning: 'e' is defined but never used.  @typescript-eslint/no-unused-vars
+131:14  Warning: 'e' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/dashboard/admin/news.tsx
+19:3  Warning: 'CircularProgress' is defined but never used.  @typescript-eslint/no-unused-vars
+21:3  Warning: 'Grid' is defined but never used.  @typescript-eslint/no-unused-vars
+23:3  Warning: 'FormControl' is defined but never used.  @typescript-eslint/no-unused-vars
+24:3  Warning: 'InputLabel' is defined but never used.  @typescript-eslint/no-unused-vars
+25:3  Warning: 'Select' is defined but never used.  @typescript-eslint/no-unused-vars
+26:3  Warning: 'MenuItem' is defined but never used.  @typescript-eslint/no-unused-vars
+27:3  Warning: 'Dialog' is defined but never used.  @typescript-eslint/no-unused-vars
+28:3  Warning: 'DialogTitle' is defined but never used.  @typescript-eslint/no-unused-vars
+29:3  Warning: 'DialogContent' is defined but never used.  @typescript-eslint/no-unused-vars
+30:3  Warning: 'DialogActions' is defined but never used.  @typescript-eslint/no-unused-vars
+31:3  Warning: 'TextareaAutosize' is defined but never used.  @typescript-eslint/no-unused-vars
+37:17  Warning: 'VisibilityIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+42:20  Warning: 'VisibilityOffIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+104:29  Warning: 'setSearchSuggestions' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+121:62  Warning: 'showForm' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+355:25  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+397:77  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+486:11  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+490:11  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+551:60  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+551:77  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+679:9  Warning: 'handleTogglePublish' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+870:31  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/pages/dashboard/admin/notifications.tsx
+13:3  Warning: 'Paper' is defined but never used.  @typescript-eslint/no-unused-vars
+29:3  Warning: 'Badge' is defined but never used.  @typescript-eslint/no-unused-vars
+38:3  Warning: 'Notifications' is defined but never used.  @typescript-eslint/no-unused-vars
+43:3  Warning: 'People' is defined but never used.  @typescript-eslint/no-unused-vars
+155:32  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+159:32  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+179:14  Warning: 'e' is defined but never used.  @typescript-eslint/no-unused-vars
+203:14  Warning: 'e' is defined but never used.  @typescript-eslint/no-unused-vars
+226:14  Warning: 'e' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/dashboard/admin/reports.tsx
+5:20  Warning: 'Line' is defined but never used.  @typescript-eslint/no-unused-vars
+32:38  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+33:48  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/pages/dashboard/admin/settings.tsx
+66:14  Warning: 'e' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/dashboard/admin/users.tsx
+15:3  Warning: 'TextField' is defined but never used.  @typescript-eslint/no-unused-vars
+16:3  Warning: 'InputAdornment' is defined but never used.  @typescript-eslint/no-unused-vars
+17:3  Warning: 'Select' is defined but never used.  @typescript-eslint/no-unused-vars
+18:3  Warning: 'MenuItem' is defined but never used.  @typescript-eslint/no-unused-vars
+21:3  Warning: 'Modal' is defined but never used.  @typescript-eslint/no-unused-vars
+24:3  Warning: 'CircularProgress' is defined but never used.  @typescript-eslint/no-unused-vars
+26:3  Warning: 'Dialog' is defined but never used.  @typescript-eslint/no-unused-vars
+27:3  Warning: 'DialogTitle' is defined but never used.  @typescript-eslint/no-unused-vars
+28:3  Warning: 'DialogContent' is defined but never used.  @typescript-eslint/no-unused-vars
+29:3  Warning: 'DialogActions' is defined but never used.  @typescript-eslint/no-unused-vars
+30:3  Warning: 'Grid' is defined but never used.  @typescript-eslint/no-unused-vars
+32:8  Warning: 'SearchIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+103:18  Warning: 'setSearch' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+104:16  Warning: 'setRole' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+106:10  Warning: 'form' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+106:16  Warning: 'setForm' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+321:60  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+349:21  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/pages/events.tsx
+97:40  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+115:16  Warning: 'err' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/faq/index.tsx
+33:11  Warning: 't' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+39:10  Warning: 'pagination' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+60:14  Warning: 'err' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/gallery/index.tsx
+10:3  Warning: 'Button' is defined but never used.  @typescript-eslint/no-unused-vars
+33:40  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/pages/index.tsx
+20:36  Warning: 'theme' is defined but never used.  @typescript-eslint/no-unused-vars
+46:38  Warning: 'theme' is defined but never used.  @typescript-eslint/no-unused-vars
+64:41  Warning: 'theme' is defined but never used.  @typescript-eslint/no-unused-vars
+118:44  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+150:57  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+156:16  Warning: 'err' is defined but never used.  @typescript-eslint/no-unused-vars
+179:32  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+317:31  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/pages/join.tsx
+47:11  Warning: 'theme' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/login.tsx
+22:8  Warning: 'PersonIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+52:11  Warning: 'theme' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+54:11  Warning: 't' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/news/index.tsx
+2:10  Warning: 'useTranslation' is defined but never used.  @typescript-eslint/no-unused-vars
+237:29  Warning: Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+./src/pages/privacy.tsx
+25:10  Warning: 'useTranslation' is defined but never used.  @typescript-eslint/no-unused-vars
+33:10  Warning: 'useTheme' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/register.tsx
+2:10  Warning: 'motion' is defined but never used.  @typescript-eslint/no-unused-vars
+8:8  Warning: 'Link' is defined but never used.  @typescript-eslint/no-unused-vars
+10:3  Warning: 'TextField' is defined but never used.  @typescript-eslint/no-unused-vars
+12:3  Warning: 'Container' is defined but never used.  @typescript-eslint/no-unused-vars
+14:3  Warning: 'Button' is defined but never used.  @typescript-eslint/no-unused-vars
+16:3  Warning: 'Grid' is defined but never used.  @typescript-eslint/no-unused-vars
+17:3  Warning: 'Divider' is defined but never used.  @typescript-eslint/no-unused-vars
+18:3  Warning: 'IconButton' is defined but never used.  @typescript-eslint/no-unused-vars
+19:3  Warning: 'InputAdornment' is defined but never used.  @typescript-eslint/no-unused-vars
+22:3  Warning: 'Alert' is defined but never used.  @typescript-eslint/no-unused-vars
+25:8  Warning: 'EmailIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+26:8  Warning: 'LockIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+27:8  Warning: 'VisibilityIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+28:8  Warning: 'VisibilityOffIcon' is defined but never used.  @typescript-eslint/no-unused-vars
+54:10  Warning: 'loading' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+55:10  Warning: 'showPassword' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+55:24  Warning: 'setShowPassword' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+56:10  Warning: 'showConfirmPassword' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+56:31  Warning: 'setShowConfirmPassword' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+59:5  Warning: 'register' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+60:5  Warning: 'handleSubmit' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+61:18  Warning: 'errors' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+62:5  Warning: 'watch' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+67:9  Warning: 'onSubmit' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+110:9  Warning: 'features' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/terms.tsx
+77:11  Warning: 'theme' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+79:11  Warning: 't' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/pages/_document.tsx
+14:47  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/server/models/Competition.ts
+2:30  Warning: 'PrismaCompetition' is defined but never used.  @typescript-eslint/no-unused-vars
+2:57  Warning: 'PrismaUser' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/server/routes/article.ts
+3:10  Warning: 'CreateArticleData' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/server/routes/competition.ts
+3:10  Warning: 'CreateCompetitionData' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/server/routes/course.ts
+3:10  Warning: 'AuthenticatedRequest' is defined but never used.  @typescript-eslint/no-unused-vars
+4:10  Warning: 'CreateCourseData' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/server/routes/payment.ts
+10:11  Warning: 'token' is assigned a value but never used.  @typescript-eslint/no-unused-vars
+
+./src/theme/theme.ts
+2:10  Warning: 'ThemeOptions' is defined but never used.  @typescript-eslint/no-unused-vars
+2:24  Warning: 'Theme' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/types/common.ts
+3:42  Warning: 'ApiError' is defined but never used.  @typescript-eslint/no-unused-vars
+
+./src/types/csv-writer.d.ts
+8:27  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/types/formidable.d.ts
+33:18  Warning: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
+
+./src/types/next-auth.d.ts
+2:10  Warning: 'DefaultSession' is defined but never used.  @typescript-eslint/no-unused-vars
+
+info  - Need to disable some ESLint rules? Learn more here: https://nextjs.org/docs/basic-features/eslint#disabling-rules
