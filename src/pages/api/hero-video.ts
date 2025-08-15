@@ -1,7 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { PrismaClient } from '@prisma/client';
-
-const prisma = new PrismaClient();
+import { prisma } from '@/lib/prisma';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'GET') {
@@ -21,6 +19,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       });
       return res.status(200).json({ success: true, data: heroVideo });
     } catch (error) {
+      console.error('Error creating hero video:', error);
       return res.status(500).json({ success: false, error: { message: 'خطا در ایجاد ویدیو', code: 'INTERNAL_SERVER_ERROR' } });
     }
   }
@@ -37,6 +36,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       });
       return res.status(200).json({ success: true, data: heroVideo });
     } catch (error) {
+      console.error('Error updating hero video:', error);
       return res.status(500).json({ success: false, error: { message: 'خطا در ویرایش ویدیو', code: 'INTERNAL_SERVER_ERROR' } });
     }
   }
@@ -50,6 +50,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       await prisma.heroVideo.delete({ where: { id } });
       return res.status(200).json({ success: true, message: 'ویدیو با موفقیت حذف شد' });
     } catch (error) {
+      console.error('Error deleting hero video:', error);
       return res.status(500).json({ success: false, error: { message: 'خطا در حذف ویدیو', code: 'INTERNAL_SERVER_ERROR' } });
     }
   }
