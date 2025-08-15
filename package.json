@@ -57,7 +57,7 @@
         "i18next": "^23.8.2",
         "i18next-browser-languagedetector": "^8.1.0",
         "i18next-http-backend": "^3.0.2",
-        "ioredis": "^5.6.1",
+        "ioredis": "^5.7.0",
         "jsonwebtoken": "^9.0.2",
         "mongoose": "^8.15.1",
         "next": "14.1.0",
