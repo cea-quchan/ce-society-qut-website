@@ -61,18 +61,30 @@ export const authOptions: NextAuthOptions = {
     error: '/auth/error',
   },
   callbacks: {
-    async jwt({ token, user }) {
-      if (user) {
-        token.role = user.role;
+    async session({ session, token }) {
+      if (!session?.user?.email) return session;
+      if ((token as any).deleted) {
+        // User deleted, force sign out
+        return { ...session, user: undefined };
+      }
+      const user = await prisma.user.findUnique({ where: { email: session.user.email } });
+      if (!user) {
+        // User deleted, mark session for sign out
+        return { ...session, user: undefined };
+      }
+      session.user.id = user.id;
+      session.user.role = user.role;
+      return session;
+    },
+    async jwt({ token }) {
+      if (!token?.email) return token;
+      const user = await prisma.user.findUnique({ where: { email: token.email as string } });
+      if (!user) {
+        // User deleted, mark token
+        return { ...token, deleted: true };
       }
       return token;
     },
-    async session({ session, token }) {
-      if (session.user) {
-        session.user.role = token.role as 'ADMIN' | 'USER';
-      }
-      return session;
-    }
   }
 };
 

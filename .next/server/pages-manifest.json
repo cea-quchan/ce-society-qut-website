@@ -2,8 +2,9 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/dashboard/admin": "pages/dashboard/admin.js",
-  "/dashboard/admin/users": "pages/dashboard/admin/users.js",
   "/api/auth/[...nextauth]": "pages/api/auth/[...nextauth].js",
-  "/": "pages/index.js"
+  "/api/settings": "pages/api/settings.js",
+  "/": "pages/index.js",
+  "/api/hero-video": "pages/api/hero-video.js",
+  "/api/news": "pages/api/news.js"
 }

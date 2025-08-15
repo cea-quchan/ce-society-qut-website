@@ -80,6 +80,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (req.method === 'DELETE') {
     // حذف کاربر
     try {
+      // Prevent admin from deleting their own account
+      if (session.user.id === id) {
+        return res.status(400).json({
+          success: false,
+          error: {
+            message: 'ادمین نمی‌تواند حساب خود را حذف کند.',
+            code: 'FORBIDDEN'
+          }
+        });
+      }
       await prisma.user.delete({ where: { id: id as string } });
       return res.status(200).json({
         success: true,

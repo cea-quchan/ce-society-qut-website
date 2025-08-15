@@ -22,6 +22,12 @@ const settingsSchema = z.object({
   siteEmail: z.string().email('ایمیل نامعتبر است').optional(),
   sitePhone: z.string().optional(),
   siteAddress: z.string().optional(),
+  loginOpen: z.boolean().optional(),
+  registrationOpen: z.boolean().optional(),
+  heroOpen: z.boolean().optional(),
+  statsActiveMembers: z.number().int().optional(),
+  statsWorkshops: z.number().int().optional(),
+  statsCompetitions: z.number().int().optional(),
   socialMedia: z.object({
     instagram: z.string().url('آدرس اینستاگرام نامعتبر است').optional(),
     twitter: z.string().url('آدرس توییتر نامعتبر است').optional(),
@@ -66,7 +72,7 @@ const handler: Handler = async (req, res, user) => {
     case 'GET':
       try {
         logger.info('Fetching settings', req);
-        const settings = await prisma.settings.findFirst();
+        const settings = await prisma.settings.findFirst();  
 
         if (!settings) {
           logger.warn('No settings found', req);

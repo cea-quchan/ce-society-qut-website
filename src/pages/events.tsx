@@ -145,7 +145,7 @@ export default function EventsPage() {
           }}
         />
         <Container maxWidth="lg" sx={{ pt: 3, pb: 1 }}>
-          <Breadcrumbs showHome items={[{ label: 'رویدادها', href: '/events' }]} />
+          <Breadcrumbs items={[{ label: 'رویدادها', href: '/events' }]} />
         </Container>
         <Container maxWidth="lg" sx={{ py: 4 }}>
           <Typography variant="h3" fontWeight={900} color="#22d3ee" align="center" mb={2} sx={{ letterSpacing: 1, textShadow: '0 0 16px #22d3ee99' }}>

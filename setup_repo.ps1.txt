@@ -1,0 +1,31 @@
+# تنظیمات
+$PROJECT_DIR = "E:\root2"
+$GITHUB_USER = "cea-quchan"
+$REPO_NAME   = "ce-society-qut-website"
+$USE_SSH     = $false
+
+Set-Location $PROJECT_DIR
+
+# رفع مشکل مالکیت پوشه
+git config --global --add safe.directory $PROJECT_DIR
+
+git init
+git add .
+git commit -m "chore: bootstrap QUT CE Society website repo"
+
+git branch -M main
+
+if ($USE_SSH) {
+  git remote add origin "git@github.com:$GITHUB_USER/$REPO_NAME.git" 2>$null
+  if ($LASTEXITCODE -ne 0) { git remote set-url origin "git@github.com:$GITHUB_USER/$REPO_NAME.git" }
+} else {
+  git remote add origin "https://github.com/$GITHUB_USER/$REPO_NAME.git" 2>$null
+  if ($LASTEXITCODE -ne 0) { git remote set-url origin "https://github.com/$GITHUB_USER/$REPO_NAME.git" }
+}
+
+git push -u origin main
+if ($LASTEXITCODE -ne 0) {
+  Write-Host "⚠️ پوش نشد. احتمالاً ریپوی ریموت فایل اولیه دارد."
+  git pull --rebase origin main --allow-unrelated-histories
+  git push -u origin main
+}

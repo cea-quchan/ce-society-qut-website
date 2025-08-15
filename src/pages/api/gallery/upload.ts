@@ -69,10 +69,8 @@ const handler = async (
         const item = await prisma.galleryItem.create({
           data: {
             title,
-            description,
             imageUrl: f,
-            uploaderId: session.user.id,
-            category
+            userId: session.user.id,
           }
         });
         createdItems.push(item);
@@ -111,10 +109,8 @@ const handler = async (
       const item = await prisma.galleryItem.create({
         data: {
           title,
-          description,
           imageUrl: `/uploads/${filename}`,
-          uploaderId: session.user.id,
-          category
+          userId: session.user.id,
         }
       });
       createdItems.push(item);
@@ -140,10 +136,8 @@ const handler = async (
       const item = await prisma.galleryItem.create({
         data: {
           title,
-          description,
           imageUrl: file,
-          uploaderId: session.user.id,
-          category
+          userId: session.user.id,
         }
       });
       return res.status(201).json({
@@ -188,10 +182,8 @@ const handler = async (
     const item = await prisma.galleryItem.create({
       data: {
         title,
-        description,
         imageUrl: `/uploads/${filename}`,
-        uploaderId: session.user.id,
-        category
+        userId: session.user.id,
       }
     });
 

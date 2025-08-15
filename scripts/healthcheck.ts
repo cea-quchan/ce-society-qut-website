@@ -2,6 +2,7 @@
 
 import { PrismaClient } from '@prisma/client';
 import fetch from 'node-fetch';
+import fs from 'fs';
 
 const prisma = new PrismaClient();
 
@@ -169,8 +170,6 @@ class HealthChecker {
   private async checkFileSystem(): Promise<void> {
     const start = Date.now();
     try {
-      const fs = require('fs');
-      const path = require('path');
       
       // Check if key directories exist
       const dirs = ['src', 'prisma', 'public', 'src/components'];

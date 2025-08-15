@@ -13,7 +13,6 @@ async function createAdminUser() {
         email: 'alikheiri10313@gmail.com',
         password: hashedPassword,
         role: 'ADMIN',
-        emailVerified: new Date(),
         points: 1000
       }
     });

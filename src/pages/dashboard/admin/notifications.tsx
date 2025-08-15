@@ -26,7 +26,6 @@ import {
   Chip,
   Checkbox,
   Grid,
-  Badge,
   Tooltip,
 } from '@mui/material';
 import {
@@ -35,13 +34,12 @@ import {
   Delete,
   Edit,
   Send,
-  Notifications,
   CheckCircle,
   Warning,
   Error,
   Info,
-  People,
 } from '@mui/icons-material';
+import { useSession } from 'next-auth/react';
 
 const accent = '#22d3ee';
 const glassCardSx = {
@@ -84,6 +82,7 @@ interface UserType {
 }
 
 const AdminNotifications: React.FC = () => {
+  const { data: session } = useSession();
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [users, setUsers] = useState<UserType[]>([]);
   const [search, setSearch] = useState('');
@@ -166,7 +165,7 @@ const AdminNotifications: React.FC = () => {
       const res = await fetch('/api/admin/notifications', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form)
+        body: JSON.stringify({ ...form, senderId: session?.user?.id })
       });
       const data = await res.json();
       if (data.success) {

@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetServerSideProps } from 'next';
 import Image from 'next/image';
@@ -143,7 +142,7 @@ export default function NewsPage() {
         />
       </ErrorBoundary>
       <Container maxWidth="lg" sx={{ pt: 3, pb: 1 }}>
-        <Breadcrumbs showHome items={[{ label: 'اخبار', href: '/news' }]} />
+        <Breadcrumbs items={[{ label: 'اخبار', href: '/news' }]} />
       </Container>
       <Container maxWidth="lg" sx={{ py: 4 }}>
         <Typography variant="h3" fontWeight={900} color="#22d3ee" align="center" mb={2} sx={{ letterSpacing: 1, textShadow: '0 0 16px #22d3ee99' }}>
@@ -234,7 +233,13 @@ export default function NewsPage() {
                       {openImageModal && selectedImageUrl && (
                         <Modal open={openImageModal} onClose={handleCloseImageModal}>
                           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh', bgcolor: 'rgba(0,0,0,0.85)' }}>
-                            <img src={selectedImageUrl} alt="news" style={{ maxWidth: '90vw', maxHeight: '90vh', borderRadius: 16, boxShadow: '0 8px 32px 0 #22d3ee99' }} />
+                            <Image
+                              src={selectedImageUrl}
+                              alt="news"
+                              width={800}
+                              height={600}
+                              style={{ maxWidth: '90vw', maxHeight: '90vh', borderRadius: 16, boxShadow: '0 8px 32px 0 #22d3ee99' }}
+                            />
                           </Box>
                         </Modal>
                       )}

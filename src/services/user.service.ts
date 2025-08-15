@@ -1,11 +1,11 @@
 import { prisma } from "@/lib/prisma";
 import { hash } from 'bcryptjs';
-import type { User as PrismaUser, Role as PrismaRole } from '@prisma/client';
+import type { User as PrismaUser } from '@prisma/client';
 import { logger } from '@/lib/logger';
 import { ValidationError } from '@/lib/errors';
 import { normalizeRole } from '@/utils/roleMap';
 
-export type Role = PrismaRole;
+export type Role = 'ADMIN' | 'USER'; // Add more roles as needed
 export type User = PrismaUser;
 export type SafeUser = Omit<PrismaUser, 'password'>;
 export type PublicUser = Pick<PrismaUser, 'id' | 'name' | 'email' | 'role' | 'image' | 'createdAt' | 'updatedAt'>;

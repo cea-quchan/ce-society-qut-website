@@ -36,6 +36,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 import PersonIcon from '@mui/icons-material/Person';
 import SchoolIcon from '@mui/icons-material/School';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import BlockIcon from '@mui/icons-material/Block';
 import type { GetServerSideProps } from 'next';
 import { prisma } from '@/lib/prisma';
 import AdvancedSearch, { SearchParams } from '@/components/admin/AdvancedSearch';
@@ -45,6 +47,8 @@ import { useModal } from '@/hooks/useModal';
 import { TableSkeleton, LoadingOverlay } from '@/components/admin/LoadingStates';
 import { ErrorDisplay, NetworkErrorHandler, ValidationErrorDisplay } from '@/components/admin/ErrorHandling';
 import Breadcrumbs from '@/components/admin/Breadcrumbs';
+import Image from 'next/image';
+import { useSession } from 'next-auth/react';
 
 const accent = '#22d3ee';
 const glassCardSx = {
@@ -92,6 +96,8 @@ interface User {
   email: string;
   role: string;
   createdAt: string;
+  active: boolean; // Added active property
+  image?: string | null; // اضافه شد
 }
 
 interface AdminUsersProps {
@@ -99,6 +105,7 @@ interface AdminUsersProps {
 }
 
 const AdminUsers: React.FC<AdminUsersProps> = ({ users: initialUsers }) => {
+  const { data: session } = useSession();
   const [users, setUsers] = useState<User[]>(initialUsers);
   const [search, setSearch] = useState('');
   const [role, setRole] = useState('all');
@@ -242,9 +249,9 @@ const AdminUsers: React.FC<AdminUsersProps> = ({ users: initialUsers }) => {
     fetchSearchSuggestions();
   }, [page]);
 
-  const filteredUsers = users.filter(u =>
-    (role === 'all' || u.role === role) &&
-    (u.name?.includes(search) || u.email?.includes(search))
+  const filteredUsers = users.filter(user =>
+    user.name.toLowerCase().includes(search.toLowerCase()) ||
+    user.email.toLowerCase().includes(search.toLowerCase())
   );
 
   const handleOpenAdd = () => {
@@ -478,6 +485,17 @@ const AdminUsers: React.FC<AdminUsersProps> = ({ users: initialUsers }) => {
         </Button>
       </Box>
 
+      <Box sx={{ mb: 3, display: 'flex', justifyContent: 'flex-end' }}>
+        <TextField
+          label="جستجو کاربر..."
+          variant="outlined"
+          size="small"
+          value={search}
+          onChange={e => setSearch(e.target.value)}
+          sx={{ minWidth: 220, bgcolor: '#181A20', borderRadius: 2, input: { color: '#fff' } }}
+        />
+      </Box>
+
       <Card sx={glassCardSx}>
         <CardContent>
           {initialLoading ? (
@@ -520,10 +538,18 @@ const AdminUsers: React.FC<AdminUsersProps> = ({ users: initialUsers }) => {
                         <TableRow key={user.id} sx={{
                           bgcolor: 'rgba(24,26,32,0.7)',
                           borderBottom: `1.5px solid ${accent}22`,
-                          '&:hover': { boxShadow: `0 0 24px 0 ${accent}33`, backdropFilter: 'blur(6px)' }
+                          '&:hover': { boxShadow: `0 0 24px 0 ${accent}33`, backdropFilter: 'blur(6px)', background: 'rgba(34,211,238,0.08)' }
                         }}>
                           <TableCell sx={{ color: accent, fontWeight: 700, display: 'flex', alignItems: 'center', gap: 1 }}>
+                            {user.image && (
+                              <Image src={user.image} alt={user.name} width={40} height={40} style={{ borderRadius: '50%', marginLeft: 8 }} />
+                            )}
                             {roleIcons[user.role] || roleIcons['user']} {user.name}
+                            {user.active ? (
+                              <CheckCircleIcon sx={{ color: '#10b981', ml: 1 }} titleAccess="فعال" />
+                            ) : (
+                              <BlockIcon sx={{ color: '#ef4444', ml: 1 }} titleAccess="غیرفعال" />
+                            )}
                           </TableCell>
                           <TableCell sx={{ color: accent, fontWeight: 700 }}>{user.email}</TableCell>
                           <TableCell>
@@ -590,13 +616,27 @@ export const getServerSideProps: GetServerSideProps = async () => {
       email: true,
       role: true,
       createdAt: true,
+      image: true, // اضافه شد
     },
     orderBy: { createdAt: 'desc' },
   });
+  // Define the type for the raw user from Prisma
+  type RawUser = {
+    id: string;
+    name: string;
+    email: string;
+    role: string;
+    createdAt: Date;
+    image: string | null; // اضافه شد
+  };
   // Format date for display (e.g., yyyy/mm/dd)
-  const formattedUsers = users.map(u => ({
-    ...u,
+  const formattedUsers = users.map((u: RawUser) => ({
+    id: u.id,
+    name: u.name,
+    email: u.email,
+    role: u.role,
     createdAt: u.createdAt ? u.createdAt.toLocaleDateString('fa-IR') : '',
+    image: u.image ?? null,
   }));
   return {
     props: {

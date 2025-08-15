@@ -7,6 +7,7 @@ import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import GroupIcon from '@mui/icons-material/Group';
+import { useSession } from 'next-auth/react';
 
 const accent = '#22d3ee';
 const glassCardSx = {
@@ -48,6 +49,7 @@ interface UserType {
 }
 
 const AdminEvents: React.FC = () => {
+  const { data: session } = useSession();
   const [events, setEvents] = useState<EventType[]>([]);
   const [users, setUsers] = useState<UserType[]>([]);
   const [search, setSearch] = useState('');
@@ -143,13 +145,13 @@ const AdminEvents: React.FC = () => {
         res = await fetch(`/api/events/${editEvent.id}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ ...form })
+          body: JSON.stringify({ ...form, organizerId: session?.user?.id })
         });
       } else {
         res = await fetch('/api/events', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(form)
+          body: JSON.stringify({ ...form, organizerId: session?.user?.id })
         });
       }
       const data = await res.json();

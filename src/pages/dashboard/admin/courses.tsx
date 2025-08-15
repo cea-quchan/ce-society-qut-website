@@ -7,6 +7,7 @@ import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import PlaylistAddCheckIcon from '@mui/icons-material/PlaylistAddCheck';
+import { useSession } from 'next-auth/react';
 
 const accent = '#22d3ee';
 const glassCardSx = {
@@ -59,6 +60,7 @@ interface Lesson {
 }
 
 const AdminCourses: React.FC = () => {
+  const { data: session } = useSession();
   const [courses, setCourses] = useState<Course[]>([]);
   const [instructors, setInstructors] = useState<Instructor[]>([]);
   const [search, setSearch] = useState('');
@@ -166,13 +168,13 @@ const AdminCourses: React.FC = () => {
         res = await fetch(`/api/courses/${editCourse.id}`, {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ ...form })
+          body: JSON.stringify({ ...form, creatorId: session?.user?.id })
         });
       } else {
         res = await fetch('/api/courses', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(form)
+          body: JSON.stringify({ ...form, creatorId: session?.user?.id })
         });
       }
       const data = await res.json();

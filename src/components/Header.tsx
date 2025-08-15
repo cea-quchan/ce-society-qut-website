@@ -127,7 +127,7 @@ const Header = () => {
             ) : (
               <Button
                 variant="outlined"
-                href="/auth/signin"
+                href="/login"
                   sx={{ 
                   border: '2px solid #22d3ee',
                   color: '#22d3ee',
@@ -207,7 +207,7 @@ const Header = () => {
           {session ? (
             <Button fullWidth variant="contained" href="/dashboard" sx={{ mt: 1, background: 'linear-gradient(90deg,#22d3ee 0%,#10b981 100%)', color: '#181A20', fontWeight: 800, borderRadius: 3, boxShadow: '0 0 16px #22d3ee55' }}>داشبورد</Button>
           ) : (
-            <Button fullWidth variant="outlined" href="/auth/signin" sx={{ mt: 1, border: '2px solid #22d3ee', color: '#22d3ee', fontWeight: 800, borderRadius: 3, boxShadow: '0 0 8px #22d3ee55' }}>ورود</Button>
+            <Button fullWidth variant="outlined" href="/login" sx={{ mt: 1, border: '2px solid #22d3ee', color: '#22d3ee', fontWeight: 800, borderRadius: 3, boxShadow: '0 0 8px #22d3ee55' }}>ورود</Button>
           )}
             </Box>
       </Drawer>

@@ -72,6 +72,7 @@ const SEO: React.FC<SEOProps> = ({
       
       {/* Favicon */}
       <link rel="icon" href="/favicon.ico" />
+      {/* The following apple-touch-icon is correctly placed in <Head>. Ignore webhint false positive. */}
       <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       <link rel="manifest" href="/site.webmanifest" />
     </Head>

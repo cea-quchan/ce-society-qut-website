@@ -7,7 +7,7 @@ import { withSecurity } from '@/middleware/security';
 import { z } from 'zod';
 import { hash } from 'bcryptjs';
 import { withApiMiddleware } from '@/middleware';
-import { ApiResponse } from '@/types/api';
+import type { ApiHandler } from '@/types/api';
 import { createApiResponse, createErrorResponse } from '@/lib/apiResponse';
 import { normalizeRole } from '@/utils/roleMap';
 
@@ -24,9 +24,17 @@ const userSchema = z.object({
   bio: z.string().max(500, 'بیوگرافی نمی‌تواند بیشتر از 500 کاراکتر باشد').optional()
 });
 
-type Handler = (req: NextApiRequest, res: NextApiResponse<ApiResponse>, user?: any) => Promise<void>;
+type CreatedUser = {
+  id: string;
+  name: string;
+  email: string;
+  image: string | null;
+  role: string;
+  points: number;
+  createdAt: Date;
+};
 
-const handler: Handler = async (req, res, user) => {
+const handler: ApiHandler<CreatedUser> = async (req, res, user) => {
   if (req.method !== 'POST') {
     logger.warn(`Method ${req.method} not allowed`, req);
     res.setHeader('Allow', ['POST']);
@@ -60,7 +68,8 @@ const handler: Handler = async (req, res, user) => {
       data: {
         ...userData,
         role: normalizeRole(userData.role),
-        password: hashedPassword
+        password: hashedPassword,
+        active: true, // همه کاربران جدید فعال باشند
       },
       select: {
         id: true,
@@ -74,10 +83,7 @@ const handler: Handler = async (req, res, user) => {
     });
 
     logger.info(`Successfully created user with ID: ${newUser.id}`, req);
-    return res.status(200).json({
-      success: true,
-      data: newUser
-    });
+    return res.status(200).json(createApiResponse(newUser));
   } catch (error) {
     logger.error('Error creating user', error, req);
     return res.status(500).json({ success: false, error: { message: 'خطا در ایجاد کاربر', code: 'CREATE_ERROR' } });

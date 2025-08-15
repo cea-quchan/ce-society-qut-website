@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
-  Box, Typography, Card, CardContent, TextField, Button, Snackbar, Alert, CircularProgress
+  Box, Typography, Card, CardContent, TextField, Button, Snackbar, Alert, CircularProgress, Switch, FormControlLabel, CardActions
 } from '@mui/material';
 
 const accent = '#22d3ee';
@@ -29,8 +29,13 @@ const AdminSettings: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [snackbar, setSnackbar] = useState<{ open: boolean; message: string; severity: 'success' | 'error' }>({ open: false, message: '', severity: 'success' });
 
+  // New: site settings state
+  const [siteSettings, setSiteSettings] = useState({ loginOpen: false, registrationOpen: false, heroOpen: true, statsActiveMembers: 150, statsWorkshops: 25, statsCompetitions: 10 });
+  const [siteLoading, setSiteLoading] = useState(false);
+
   useEffect(() => {
     fetchProfile();
+    fetchSiteSettings();
   }, []);
 
   const fetchProfile = async () => {
@@ -43,9 +48,40 @@ const AdminSettings: React.FC = () => {
     } catch {}
   };
 
+  // New: fetch site settings
+  const fetchSiteSettings = async () => {
+    setSiteLoading(true);
+    try {
+      const res = await fetch('/api/settings');
+      const data = await res.json();
+      if (data.success && data.data) {
+        setSiteSettings({
+          loginOpen: !!data.data.loginOpen,
+          registrationOpen: !!data.data.registrationOpen,
+          heroOpen: data.data.heroOpen !== false,
+          statsActiveMembers: data.data.statsActiveMembers ?? 150,
+          statsWorkshops: data.data.statsWorkshops ?? 25,
+          statsCompetitions: data.data.statsCompetitions ?? 10,
+        });
+      }
+    } catch {}
+    setSiteLoading(false);
+  };
+
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setForm(f => ({ ...f, [name]: value }));
+  };
+
+  // New: handle switch change
+  const handleSwitchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, checked } = e.target;
+    setSiteSettings(s => ({ ...s, [name]: checked }));
+  };
+
+  const handleStatsInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setSiteSettings(s => ({ ...s, [name]: Number(value) }));
   };
 
   const handleSubmit = async () => {
@@ -70,6 +106,28 @@ const AdminSettings: React.FC = () => {
     }
   };
 
+  // New: save site settings
+  const handleSaveSiteSettings = async () => {
+    setSiteLoading(true);
+    try {
+      const res = await fetch('/api/settings', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(siteSettings)
+      });
+      const data = await res.json();
+      if (data.success) {
+        setSnackbar({ open: true, message: 'تنظیمات سایت با موفقیت ذخیره شد', severity: 'success' });
+      } else {
+        setSnackbar({ open: true, message: data.error?.message || 'خطا', severity: 'error' });
+      }
+    } catch (e) {
+      setSnackbar({ open: true, message: 'خطا در ارتباط با سرور', severity: 'error' });
+    } finally {
+      setSiteLoading(false);
+    }
+  };
+
   return (
     <Box sx={{ p: { xs: 1, md: 3 } }}>
       <Card sx={glassCardSx}>
@@ -86,6 +144,57 @@ const AdminSettings: React.FC = () => {
         <Snackbar open={snackbar.open} autoHideDuration={4000} onClose={() => setSnackbar(s => ({ ...s, open: false }))}>
           <Alert severity={snackbar.severity} sx={{ width: '100%' }}>{snackbar.message}</Alert>
         </Snackbar>
+      </Card>
+
+      {/* Site settings card */}
+      <Card sx={{ ...glassCardSx, mt: 4 }}>
+        <CardContent>
+          <Typography variant="h6" sx={neonTextSx} mb={2}>تنظیمات سایت</Typography>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, maxWidth: 400 }}>
+            <FormControlLabel
+              control={<Switch checked={siteSettings.loginOpen} onChange={handleSwitchChange} name="loginOpen" color="primary" />}
+              label="فعال‌سازی ورود کاربران"
+            />
+            <FormControlLabel
+              control={<Switch checked={siteSettings.registrationOpen} onChange={handleSwitchChange} name="registrationOpen" color="primary" />}
+              label="فعال‌سازی ثبت‌نام کاربران"
+            />
+            <FormControlLabel
+              control={<Switch checked={siteSettings.heroOpen} onChange={handleSwitchChange} name="heroOpen" color="primary" />}
+              label="نمایش بخش Hero در صفحه اصلی"
+            />
+            <TextField
+              label="تعداد اعضای فعال (👥)"
+              name="statsActiveMembers"
+              type="number"
+              value={siteSettings.statsActiveMembers}
+              onChange={handleStatsInputChange}
+              fullWidth
+              sx={{ input: { color: accent } }}
+            />
+            <TextField
+              label="تعداد کارگاه‌ها (🎯)"
+              name="statsWorkshops"
+              type="number"
+              value={siteSettings.statsWorkshops}
+              onChange={handleStatsInputChange}
+              fullWidth
+              sx={{ input: { color: accent } }}
+            />
+            <TextField
+              label="تعداد مسابقات (🏆)"
+              name="statsCompetitions"
+              type="number"
+              value={siteSettings.statsCompetitions}
+              onChange={handleStatsInputChange}
+              fullWidth
+              sx={{ input: { color: accent } }}
+            />
+          </Box>
+        </CardContent>
+        <CardActions sx={{ justifyContent: 'flex-end', px: 3, pb: 2 }}>
+          <Button onClick={handleSaveSiteSettings} disabled={siteLoading} sx={{ fontWeight: 800, color: accent, border: '1.5px solid #22d3ee99', borderRadius: 2 }}>{siteLoading ? <CircularProgress size={24} /> : 'ذخیره تنظیمات سایت'}</Button>
+        </CardActions>
       </Card>
     </Box>
   );

@@ -1,2 +1,39 @@
-node_modules
-node_modules
+# Operating system / editor files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Logs
+*.log
+
+# Node / frontend
+node_modules/
+dist/
+build/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# PHP / Laravel
+vendor/
+storage/*
+!storage/app/public
+public/storage
+.env
+*.env
+
+# Python
+__pycache__/
+.venv/
+
+# Database files
+*.sqlite
+*.sql
+
+# IDE / editor
+.idea/
+.vscode/
+
+# Misc
+*.bak
+*.tmp

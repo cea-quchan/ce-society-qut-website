@@ -20,6 +20,7 @@ model User {
   image     String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+  active    Boolean  @default(true)
   // روابط
   articles      Article[]
   events        Event[]        @relation("OrganizerEvents")
@@ -35,6 +36,13 @@ model User {
   webinarParticipants WebinarParticipant[]
   pollsCreated Poll[]        @relation("PollsCreatedByUser")
   webinarsHosted Webinar[]   @relation("WebinarsHostedByUser")
+  newsCreated News[]         @relation("NewsCreatedByUser")
+  galleryItems  GalleryItem[]
+  notifications Notification[]
+  reports       Report[]
+  restores      Restore[]
+  backups       Backup[]
+  payments      Payment[]
 }
 
 // مدل Article
@@ -259,4 +267,147 @@ model ChatGroupMember {
   userId    String
   role      String
   joinedAt  DateTime
+}
+
+model News {
+  id        String   @id @default(uuid())
+  title     String
+  content   String
+  summary   String?
+  date      DateTime @default(now())
+  author    User     @relation("NewsCreatedByUser", fields: [authorId], references: [id])
+  authorId  String
+  category  String
+  published Boolean  @default(false)
+  publishedAt DateTime?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  images    NewsImage[] @relation("NewsImages")
+}
+
+model NewsImage {
+  id        String   @id @default(uuid())
+  url       String
+  alt       String?
+  news      News     @relation("NewsImages", fields: [newsId], references: [id])
+  newsId    String
+  order     Int
+}
+
+model GalleryItem {
+  id        String   @id @default(uuid())
+  title     String
+  imageUrl  String
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+}
+
+model HeroVideo {
+  id          String   @id @default(uuid())
+  videoUrl    String
+  description String?
+  platform    String   // youtube, aparat, faradars, maktabkhooneh, twitch, ...
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Settings {
+  id             String   @id @default(uuid())
+  siteName       String
+  siteDescription String
+  siteLogo       String
+  siteFavicon    String
+  siteKeywords   String
+  siteLanguage   String   @default("fa")
+  maintenanceMode Boolean @default(false)
+  loginOpen      Boolean  @default(false)
+  registrationOpen Boolean @default(false)
+  heroOpen       Boolean  @default(true)
+  statsActiveMembers   Int    @default(150)
+  statsWorkshops       Int    @default(25)
+  statsCompetitions    Int    @default(10)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model Notification {
+  id              String   @id @default(uuid())
+  title           String
+  message         String
+  type            String
+  read            Boolean @default(false)
+  status          String  @default("sent")
+  targetAudience  String?
+  scheduledFor    DateTime?
+  readCount       Int     @default(0)
+  totalRecipients Int     @default(1)
+  link            String?
+  metadata        Json?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  userId          String
+  user            User     @relation(fields: [userId], references: [id])
+}
+
+model Report {
+  id          String   @id @default(uuid())
+  type        String
+  targetId    String
+  targetType  String
+  reason      String
+  description String?
+  status      String   @default("PENDING")
+  adminNotes  String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  reporterId  String
+  reporter    User     @relation(fields: [reporterId], references: [id])
+}
+
+model Restore {
+  id        String   @id @default(uuid())
+  type      String
+  data      Json
+  status    String   @default("PENDING")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model Backup {
+  id          String   @id @default(uuid())
+  filename    String
+  size        String
+  description String?
+  createdAt   DateTime @default(now())
+  createdBy   String
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+}
+
+model Payment {
+  id          String   @id @default(uuid())
+  amount      Float
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  type        String
+  description String?
+  status      String   @default("PENDING")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Contact {
+  id        String   @id @default(uuid())
+  name      String
+  email     String
+  subject   String
+  message   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

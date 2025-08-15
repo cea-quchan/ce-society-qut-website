@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, CssBaseline, Grid, Card, CardContent, Typography, Button, Paper, List, ListItem, ListItemText, ListItemIcon, Divider } from '@mui/material';
+import { Box, CssBaseline, Grid, Card, CardContent, Typography, Button, List, ListItem, ListItemText, ListItemIcon, Divider } from '@mui/material';
 import AdminSidebar from '@/components/admin/AdminSidebar';
 import type { GetServerSideProps } from 'next';
 import { prisma } from '@/lib/prisma';
@@ -13,13 +13,16 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import Link from 'next/link';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, PieChart, Pie, Cell } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import ArticleIcon from '@mui/icons-material/Article';
 import PhotoIcon from '@mui/icons-material/Photo';
 import MessageIcon from '@mui/icons-material/Message';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 interface DashboardStats {
   totalUsers: number;
@@ -32,6 +35,9 @@ interface DashboardStats {
   news: number;
   gallery: number;
   messages: number;
+  statsActiveMembers: number;
+  statsWorkshops: number;
+  statsCompetitions: number;
 }
 
 interface RecentActivity {
@@ -122,6 +128,13 @@ const AdminDashboard: React.FC<{ stats: DashboardStats; recentActivities: Recent
     stats.messages,
   ];
 
+  // Custom stats for homepage
+  const homepageStats = [
+    { icon: '👥', value: `${stats.statsActiveMembers}+`, label: 'اعضای فعال', description: 'از ابتدای سال' },
+    { icon: '🎯', value: `${stats.statsWorkshops}+`, label: 'کارگاه‌ها', description: 'در سه ماه گذشته' },
+    { icon: '🏆', value: `${stats.statsCompetitions}+`, label: 'مسابقات', description: 'در سال جاری' },
+  ];
+
   return (
     <Box sx={{ display: 'flex', flexDirection: 'row-reverse', minHeight: '100vh', bgcolor: '#181A20' }}>
       <CssBaseline />
@@ -132,7 +145,19 @@ const AdminDashboard: React.FC<{ stats: DashboardStats; recentActivities: Recent
           <Typography variant="h4" sx={{ fontWeight: 800, mb: 4, color: accent, letterSpacing: 1 }}>
             داشبورد تحلیلی مدیریت
           </Typography>
-          
+          {/* آمار ویژه صفحه اصلی */}
+          <Grid container spacing={{ xs: 2, sm: 3, md: 4 }} sx={{ mb: 2 }}>
+            {homepageStats.map((stat) => (
+              <Grid item xs={12} sm={4} key={stat.label}>
+                <Card sx={{ ...glassCardSx, minHeight: 170, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', borderRadius: 6 }}>
+                  <Box sx={{ fontSize: 48, mb: 1 }}>{stat.icon}</Box>
+                  <Typography variant="h3" sx={{ ...neonTextSx, fontSize: { xs: 32, md: 40, lg: 48 } }}>{stat.value}</Typography>
+                  <Typography variant="h6" sx={neonTextSx}>{stat.label}</Typography>
+                  <Typography variant="body2" sx={{ color: '#aaa', mt: 1 }}>{stat.description}</Typography>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
           {/* آمار سریع */}
           <Grid container spacing={{ xs: 2, sm: 3, md: 4 }}>
             {cardLabels.map((label, i) => (
@@ -452,6 +477,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
       prisma.galleryItem.count(),
       prisma.contact.count(),
     ]);
+    // خواندن تنظیمات ویژه آمار
+    const settings = await prisma.settings.findFirst() as { statsActiveMembers?: number; statsWorkshops?: number; statsCompetitions?: number } | null;
 
     // آخرین فعالیت‌ها
     const [recentUsers, recentNews, recentEvents, recentCourses, recentGallery] = await Promise.all([
@@ -484,35 +511,35 @@ export const getServerSideProps: GetServerSideProps = async () => {
 
     // ترکیب فعالیت‌ها
     const recentActivities: RecentActivity[] = [
-      ...recentUsers.map(user => ({
+      ...recentUsers.map((user: { id: string; name: string; email: string; createdAt: Date }) => ({
         id: user.id,
         type: 'user' as const,
         title: `کاربر جدید: ${user.name}`,
         description: `ایمیل: ${user.email}`,
         timestamp: user.createdAt.toISOString(), // Convert to ISO string
       })),
-      ...recentNews.map(news => ({
+      ...recentNews.map((news: { id: string; title: string; createdAt: Date }) => ({
         id: news.id,
         type: 'news' as const,
         title: `خبر جدید: ${news.title}`,
         description: 'خبر جدید منتشر شد',
         timestamp: news.createdAt.toISOString(), // Convert to ISO string
       })),
-      ...recentEvents.map(event => ({
+      ...recentEvents.map((event: { id: string; title: string; createdAt: Date }) => ({
         id: event.id,
         type: 'event' as const,
         title: `رویداد جدید: ${event.title}`,
         description: 'رویداد جدید ایجاد شد',
         timestamp: event.createdAt.toISOString(), // Convert to ISO string
       })),
-      ...recentCourses.map(course => ({
+      ...recentCourses.map((course: { id: string; title: string; createdAt: Date }) => ({
         id: course.id,
         type: 'course' as const,
         title: `دوره جدید: ${course.title}`,
         description: 'دوره جدید ایجاد شد',
         timestamp: course.createdAt.toISOString(), // Convert to ISO string
       })),
-      ...recentGallery.map(item => ({
+      ...recentGallery.map((item: { id: string; title: string; createdAt: Date }) => ({
         id: item.id,
         type: 'gallery' as const,
         title: `عکس جدید: ${item.title}`,
@@ -534,6 +561,9 @@ export const getServerSideProps: GetServerSideProps = async () => {
           news,
           gallery,
           messages,
+          statsActiveMembers: settings?.statsActiveMembers ?? 150,
+          statsWorkshops: settings?.statsWorkshops ?? 25,
+          statsCompetitions: settings?.statsCompetitions ?? 10,
         },
         recentActivities,
       },
@@ -553,6 +583,9 @@ export const getServerSideProps: GetServerSideProps = async () => {
           news: 0,
           gallery: 0,
           messages: 0,
+          statsActiveMembers: 0,
+          statsWorkshops: 0,
+          statsCompetitions: 0,
         },
         recentActivities: [],
       },
@@ -560,4 +593,24 @@ export const getServerSideProps: GetServerSideProps = async () => {
   }
 };
 
-export default AdminDashboard; 
+export default function AdminDashboardPage(props: React.JSX.IntrinsicAttributes & { stats: DashboardStats; recentActivities: RecentActivity[]; }) {
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (status === 'loading') return;
+    if (!session?.user?.role || session.user.role !== 'ADMIN') {
+      router.replace('/admin-login');
+    }
+    // هیچ مقدار غیرتابع return نشود
+  }, [session, status, router]);
+
+  if (status === 'loading') {
+    return null; // یا یک spinner
+  }
+  if (!session?.user?.role || session.user.role !== 'ADMIN') {
+    return null; // یا یک spinner
+  }
+
+  return <AdminDashboard {...props} />;
+}; 

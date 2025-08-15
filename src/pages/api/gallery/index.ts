@@ -60,14 +60,14 @@ const handler: Handler = async (req, res) => {
         skip,
         take,
         orderBy: { order: 'asc' },
-        include: {
-          uploader: {
-            select: {
-              id: true,
-              name: true,
-              email: true
-            }
-          }
+        select: {
+          id: true,
+          title: true,
+          imageUrl: true,
+          order: true,
+          createdAt: true,
+          updatedAt: true,
+          userId: true,
         }
       })
     ]);

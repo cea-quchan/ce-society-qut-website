@@ -137,7 +137,7 @@ const Join: React.FC = () => {
             logo: '/images/logo.png',
           }}
         />
-        <Breadcrumbs showHome items={[{ label: 'پیوستن به انجمن', href: '/join' }]} />
+        <Breadcrumbs items={[{ label: 'پیوستن به انجمن', href: '/join' }]} />
 
         {/* Hero Section */}
         <Box

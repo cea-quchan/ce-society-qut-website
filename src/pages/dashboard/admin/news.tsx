@@ -53,6 +53,8 @@ import { TableSkeleton, LoadingOverlay } from '@/components/admin/LoadingStates'
 import { ErrorDisplay, NetworkErrorHandler, ValidationErrorDisplay } from '@/components/admin/ErrorHandling';
 import Breadcrumbs from '@/components/admin/Breadcrumbs';
 import { DragDropContext, Droppable, Draggable, DropResult, DroppableProvided, DraggableProvided } from 'react-beautiful-dnd';
+import { useSession } from 'next-auth/react';
+import Image from 'next/image';
 
 const accent = '#22d3ee';
 
@@ -94,6 +96,7 @@ const neonTextSx = {
 };
 
 const AdminNews: React.FC<AdminNewsProps> = ({ news: initialNews }) => {
+  const { data: session } = useSession(); // اضافه کردن useSession
   const [news, setNews] = useState<News[]>(initialNews);
   const [loading, setLoading] = useState(false);
   const [initialLoading, setInitialLoading] = useState(false);
@@ -259,7 +262,7 @@ const AdminNews: React.FC<AdminNewsProps> = ({ news: initialNews }) => {
   useEffect(() => {
     setInitialLoading(true);
     setError(null);
-    fetchNews(page).finally(() => setInitialLoading(false));
+    fetchNews(page);
   }, [page]);
 
   const handleOpenAdd = () => {
@@ -352,7 +355,7 @@ const AdminNews: React.FC<AdminNewsProps> = ({ news: initialNews }) => {
                   <Draggable key={src} draggableId={src} index={idx}>
                     {(provided: DraggableProvided) => (
                       <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} style={{ marginBottom: 8 }}>
-                        <img src={src} alt={`پیش‌نمایش ${idx+1}`} style={{ width: '100%', borderRadius: 8, objectFit: 'cover', maxHeight: 120 }} />
+                        <Image src={src} alt={`پیش‌نمایش ${idx+1}`} width={100} height={120} style={{ borderRadius: 8, objectFit: 'cover' }} />
                       </div>
                     )}
                   </Draggable>
@@ -483,11 +486,11 @@ const AdminNews: React.FC<AdminNewsProps> = ({ news: initialNews }) => {
         </Button>
         {/* پیش‌نمایش عکس‌های قبلی */}
         {editingInitialImages.length > 0 && imagePreviews.length === 0 && editingInitialImages.map((src, idx) => (
-          <img key={idx} src={src} alt={`عکس قبلی ${idx+1}`} style={{ width: '100%', borderRadius: 8, marginTop: 8, objectFit: 'cover', maxHeight: 120 }} />
+          <Image key={idx} src={src} alt={`عکس قبلی ${idx+1}`} width={100} height={120} style={{ borderRadius: 8, marginTop: 8, objectFit: 'cover' }} />
         ))}
         {/* پیش‌نمایش عکس‌های جدید */}
         {imagePreviews.length > 0 && imagePreviews.map((src, idx) => (
-          <img key={idx} src={src} alt={`پیش‌نمایش ${idx+1}`} style={{ width: '100%', borderRadius: 8, marginTop: 8, objectFit: 'cover', maxHeight: 120 }} />
+          <Image key={idx} src={src} alt={`پیش‌نمایش ${idx+1}`} width={100} height={120} style={{ borderRadius: 8, marginTop: 8, objectFit: 'cover' }} />
         ))}
         <Typography sx={{ mt: 1, fontWeight: 700 }}>یا لینک عکس اینترنتی:</Typography>
         {imageLinks.map((link, idx) => (
@@ -635,6 +638,7 @@ const AdminNews: React.FC<AdminNewsProps> = ({ news: initialNews }) => {
           ...formData,
           images,
           published: formData.published || false,
+          authorId: session?.user?.id, // مقداردهی صحیح
         }),
         credentials: 'include'
       });
@@ -867,7 +871,7 @@ const AdminNews: React.FC<AdminNewsProps> = ({ news: initialNews }) => {
                           <TableCell sx={{ color: accent, fontWeight: 700 }}>{formatDate(newsItem.createdAt)}</TableCell>
                           <TableCell>
                             {Array.isArray(newsItem.images) && newsItem.images.length > 0 && newsItem.images.map((img, idx) => (
-                              <img key={idx} src={img.url} alt={`img${idx+1}`} style={{ width: 48, height: 48, objectFit: 'cover', borderRadius: 4, marginLeft: 4 }} />
+                              <Image key={idx} src={img.url} alt={`img${idx+1}`} width={48} height={48} style={{ width: 48, height: 48, objectFit: 'cover', borderRadius: 4, marginLeft: 4 }} />
                             ))}
                           </TableCell>
                           <TableCell>
@@ -928,7 +932,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   if (!session || session.user.role !== 'ADMIN') {
     return {
       redirect: {
-        destination: '/auth/signin',
+        destination: '/login',
         permanent: false,
       },
     };

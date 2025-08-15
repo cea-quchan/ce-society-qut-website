@@ -1,12 +1,9 @@
-import { NextResponse } from 'next/server';
 import { PrismaClient } from '@prisma/client';
 import fs from 'fs';
-import path from 'path';
 
 const prisma = new PrismaClient();
 
 export async function GET() {
-  const startTime = Date.now();
   const health = {
     status: 'healthy',
     timestamp: new Date().toISOString(),
@@ -77,7 +74,6 @@ export async function GET() {
   // Disk check (simplified)
   const diskStart = Date.now();
   try {
-    
     // Check if key directories are accessible
     const dirs = ['src', 'prisma', 'public'];
     const accessibleDirs = dirs.filter(dir => fs.existsSync(dir));
@@ -110,8 +106,6 @@ export async function GET() {
     health.status = 'degraded';
   }
 
-  const totalDuration = Date.now() - startTime;
-  
   await prisma.$disconnect();
 
   return Response.json({

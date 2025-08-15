@@ -1,20 +1,19 @@
 version: '3.8'
 
 services:
-  mongodb:
-    image: mongo:7.0
-    container_name: mongodb
+  postgresql:
+    image: postgres:15
+    container_name: postgresql
     restart: always
     environment:
-      MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: password123
-      MONGO_INITDB_DATABASE: educational_platform
+      POSTGRES_DB: mydb
+      POSTGRES_USER: myuserr
+      POSTGRES_PASSWORD: ahmad10313
     ports:
-      - "27017:27017"
+      - "5432:5432"
     volumes:
-      - mongodb_data:/data/db
-      - ./mongod.conf:/etc/mongod.conf
-    command: mongod --config /etc/mongod.conf
+      - postgresql_data:/var/lib/postgresql/data
+    command: postgres -c listen_addresses='*'
 
   redis:
     image: redis:7-alpine
@@ -27,5 +26,5 @@ services:
     command: redis-server --appendonly yes
 
 volumes:
-  mongodb_data:
+  postgresql_data:
   redis_data: 

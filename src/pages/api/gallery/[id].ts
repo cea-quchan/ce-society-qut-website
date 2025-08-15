@@ -26,16 +26,20 @@ const handler = async (
     });
   }
 
-  const session = await getServerSession(req, res, authOptions);
-  if (!session) {
-    logger.warn('Unauthorized access attempt', req);
-    return res.status(401).json({
-      success: false,
-      error: {
-        message: 'Unauthorized',
-        code: 'UNAUTHORIZED' as ErrorCode
-      }
-    });
+  // Only require authentication for PUT and DELETE
+  let session = null;
+  if (req.method === 'PUT' || req.method === 'DELETE') {
+    session = await getServerSession(req, res, authOptions);
+    if (!session) {
+      logger.warn('Unauthorized access attempt', req);
+      return res.status(401).json({
+        success: false,
+        error: {
+          message: 'Unauthorized',
+          code: 'UNAUTHORIZED' as ErrorCode
+        }
+      });
+    }
   }
 
   const { id } = req.query;
@@ -44,15 +48,6 @@ const handler = async (
     if (req.method === 'GET') {
       const image = await prisma.galleryItem.findUnique({
         where: { id: String(id) },
-        include: {
-          uploader: {
-            select: {
-              id: true,
-              name: true,
-              email: true
-            }
-          }
-        }
       });
 
       if (!image) {
@@ -66,16 +61,25 @@ const handler = async (
         });
       }
 
+      // Return only the fields defined in the GalleryItem model
       return res.status(200).json({
         success: true,
-        data: image
+        data: {
+          id: image.id,
+          title: image.title,
+          imageUrl: image.imageUrl,
+          order: image.order,
+          createdAt: image.createdAt,
+          updatedAt: image.updatedAt,
+          userId: image.userId,
+        }
       });
     }
 
     if (req.method === 'PUT') {
-      const { title, description, imageUrl, caption, thumbnailUrl } = req.body;
+      const { title, imageUrl } = req.body;
 
-      if (!title || !description) {
+      if (!title || !imageUrl) {
         logger.warn('Missing required fields', req);
         return res.status(400).json({
           success: false,
@@ -86,18 +90,14 @@ const handler = async (
         });
       }
 
-      // پیدا کردن آیتم قبلی برای تاریخچه و حذف عکس قبلی در صورت نیاز
       const prevItem = await prisma.galleryItem.findUnique({ where: { id: String(id) } });
       let newImageUrl = prevItem?.imageUrl;
-      let newThumbnailUrl = (prevItem as import('@/types/api').GalleryItem)?.thumbnailUrl;
       // اگر imageUrl جدید ارسال شده
       if (imageUrl && imageUrl !== prevItem?.imageUrl) {
-        // اگر عکس قبلی فایل بود، حذف کن
         if (prevItem?.imageUrl && prevItem.imageUrl.startsWith('/uploads/')) {
           const filePath = path.join(process.cwd(), 'public', prevItem.imageUrl);
           try { await fs.unlink(filePath); } catch {}
         }
-        // اگر imageUrl جدید base64 بود، ذخیره کن
         if (typeof imageUrl === 'string' && imageUrl.startsWith('data:image/')) {
           const matches = /^data:(image\/jpeg|image\/png);base64,/.exec(imageUrl);
           if (!matches) {
@@ -113,37 +113,27 @@ const handler = async (
           const filePath = path.join(process.cwd(), 'public', 'uploads', filename);
           await fs.writeFile(filePath, Buffer.from(base64Data, 'base64'));
           newImageUrl = `/uploads/${filename}`;
-          // TODO: تولید thumbnail و ذخیره آن (در گام بعد)
         } else {
-          // اگر لینک اینترنتی است
           newImageUrl = imageUrl;
         }
-      }
-      // اگر thumbnailUrl جدید ارسال شده
-      if (thumbnailUrl) {
-        newThumbnailUrl = thumbnailUrl;
       }
       // ویرایش آیتم
       const image = await prisma.galleryItem.update({
         where: { id: String(id) },
-        data: { title, description, imageUrl: newImageUrl, caption, thumbnailUrl: newThumbnailUrl }
+        data: { title, imageUrl: newImageUrl }
       });
-      // ثبت تاریخچه تغییرات
-      await prisma.galleryItemHistory.create({
-        data: {
-          galleryItemId: image.id,
-          title: prevItem?.title || '',
-          description: prevItem?.description,
-          category: prevItem?.category || '',
-          imageUrl: prevItem?.imageUrl || '',
-          order: prevItem?.order || 0,
-          changedBy: session.user.id,
-          changeType: 'edit'
-        }
-      });
+      // حذف ثبت تاریخچه تغییرات چون galleryItemHistory وجود ندارد
       return res.status(200).json({
         success: true,
-        data: image
+        data: {
+          id: image.id,
+          title: image.title,
+          imageUrl: image.imageUrl,
+          order: image.order,
+          createdAt: image.createdAt,
+          updatedAt: image.updatedAt,
+          userId: image.userId,
+        }
       });
     }
 

@@ -62,6 +62,10 @@ export function withRateLimit<T>(handler: ApiHandler<T>, config: Partial<RateLim
 
 export const cleanupRateLimits = async () => {
   const redis = getRedisClient();
+  if (!redis) {
+    logger.warn('Redis is not available for cleanup');
+    return;
+  }
   try {
     const keys = await redis.keys(`${defaultConfig.keyPrefix}*`);
     if (keys.length > 0) {

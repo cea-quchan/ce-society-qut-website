@@ -5,7 +5,6 @@ import { prisma } from "@/lib/prisma";
 import { AppError } from '@/middleware/error';
 import { z } from 'zod';
 import { withApiMiddleware } from '@/middleware';
-import { ApiResponse } from '@/types/api';
 import {
   createApiResponse,
   createUnauthorizedResponse,

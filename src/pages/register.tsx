@@ -30,6 +30,7 @@ import HowToRegIcon from '@mui/icons-material/HowToReg';
 import SchoolIcon from '@mui/icons-material/School';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { GetServerSideProps } from 'next';
 
 // Validation schema
 const registerSchema = z.object({
@@ -48,7 +49,7 @@ const registerSchema = z.object({
 
 type RegisterFormData = z.infer<typeof registerSchema>;
 
-const Register: React.FC = () => {
+const Register: React.FC<{ registrationOpen: boolean }> = ({ registrationOpen }) => {
   const router = useRouter();
   const theme = useTheme();
   const [loading, setLoading] = useState(false);
@@ -125,6 +126,22 @@ const Register: React.FC = () => {
     }
   ];
 
+  if (!registrationOpen) {
+    return (
+      <Box sx={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: theme.palette.mode === 'dark' ? '#000' : `linear-gradient(135deg, ${alpha(theme.palette.primary.main, 0.1)} 0%, ${alpha(theme.palette.secondary.main, 0.1)} 100%)` }}>
+        <Paper elevation={3} sx={{ p: 6, borderRadius: 3, maxWidth: 420, width: '100%', textAlign: 'center' }}>
+          <HowToRegIcon sx={{ fontSize: 60, color: 'primary.main', mb: 2 }} />
+          <Typography variant="h4" component="h1" sx={{ fontWeight: 700, mb: 2 }}>
+            ثبت نام غیرفعال است
+          </Typography>
+          <Typography variant="body1" color="text.secondary">
+            ثبت نام کاربران جدید در این فصل غیرفعال شده است.<br />لطفاً در فصل بعدی مجدداً تلاش کنید.
+          </Typography>
+        </Paper>
+      </Box>
+    );
+  }
+
   return (
     <>
       <Head>
@@ -134,17 +151,157 @@ const Register: React.FC = () => {
       </Head>
       <Box sx={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', background: theme.palette.mode === 'dark' ? '#000' : `linear-gradient(135deg, ${alpha(theme.palette.primary.main, 0.1)} 0%, ${alpha(theme.palette.secondary.main, 0.1)} 100%)` }}>
         <Paper elevation={3} sx={{ p: 6, borderRadius: 3, maxWidth: 420, width: '100%', textAlign: 'center' }}>
-                    <HowToRegIcon sx={{ fontSize: 60, color: 'primary.main', mb: 2 }} />
+          <HowToRegIcon sx={{ fontSize: 60, color: 'primary.main', mb: 2 }} />
           <Typography variant="h4" component="h1" sx={{ fontWeight: 700, mb: 2 }}>
-            ثبت نام غیرفعال است
-                    </Typography>
-                    <Typography variant="body1" color="text.secondary">
-            ثبت نام کاربران جدید در این فصل غیرفعال شده است.<br />لطفاً در فصل بعدی مجدداً تلاش کنید.
-                              </Typography>
-                        </Paper>
+            ثبت نام
+          </Typography>
+          <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
+            برای شرکت در انجمن علمی مهندسی کامپیوتر، لطفاً اطلاعات خود را وارد کنید.
+          </Typography>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <TextField
+                  label="نام کامل"
+                  {...register('name')}
+                  error={!!errors.name}
+                  helperText={errors.name?.message}
+                  fullWidth
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <PersonIcon />
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  label="ایمیل"
+                  {...register('email')}
+                  error={!!errors.email}
+                  helperText={errors.email?.message}
+                  fullWidth
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <EmailIcon />
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  label="رمز عبور"
+                  type={showPassword ? 'text' : 'password'}
+                  {...register('password')}
+                  error={!!errors.password}
+                  helperText={errors.password?.message}
+                  fullWidth
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <LockIcon />
+                      </InputAdornment>
+                    ),
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton onClick={() => setShowPassword(!showPassword)} edge="end">
+                          {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  label="تکرار رمز عبور"
+                  type={showConfirmPassword ? 'text' : 'password'}
+                  {...register('confirmPassword')}
+                  error={!!errors.confirmPassword}
+                  helperText={errors.confirmPassword?.message}
+                  fullWidth
+                  InputProps={{
+                    startAdornment: (
+                      <InputAdornment position="start">
+                        <LockIcon />
+                      </InputAdornment>
+                    ),
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <IconButton onClick={() => setShowConfirmPassword(!showConfirmPassword)} edge="end">
+                          {showConfirmPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                        </IconButton>
+                      </InputAdornment>
+                    ),
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  fullWidth
+                  size="large"
+                  disabled={loading}
+                  sx={{
+                    py: 1.5,
+                    fontSize: '1.1rem',
+                    fontWeight: 700,
+                    borderRadius: 2,
+                    '&:hover': {
+                      backgroundColor: theme.palette.primary.dark,
+                    },
+                  }}
+                >
+                  {loading ? 'در حال ثبت نام...' : 'ثبت نام'}
+                </Button>
+              </Grid>
+            </Grid>
+          </form>
+          <Divider sx={{ my: 3 }}>یا</Divider>
+          <Button
+            variant="outlined"
+            fullWidth
+            onClick={() => signIn('google', { callbackUrl: '/dashboard' })}
+            startIcon={<img src="/google-logo.png" alt="Google" width={24} height={24} />}
+            sx={{
+              py: 1.5,
+              fontSize: '1rem',
+              fontWeight: 600,
+              borderRadius: 2,
+              borderColor: theme.palette.divider,
+              '&:hover': {
+                borderColor: theme.palette.primary.main,
+                backgroundColor: theme.palette.action.hover,
+              },
+            }}
+          >
+            ورود با گوگل
+          </Button>
+          <Typography variant="body2" sx={{ mt: 2 }}>
+            قبلاً ثبت نام کرده‌اید؟{' '}
+            <Link href="/login" style={{ color: theme.palette.primary.main, textDecoration: 'none' }}>
+              ورود
+            </Link>
+          </Typography>
+        </Paper>
       </Box>
     </>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/settings`);
+  const settings = await res.json();
+  return {
+    props: {
+      registrationOpen: settings?.data?.registrationOpen ?? false,
+    },
+  };
 };
 
 export default Register;

@@ -1,20 +1,19 @@
-import { useState } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import {
   Box,
   Container,
   Grid,
   Typography,
   Card,
-  CardMedia,
   CardContent,
   Button,
   Dialog,
   DialogContent,
   IconButton,
   useTheme,
+  CircularProgress,
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import { useQuery } from '@tanstack/react-query';
 import Image from 'next/image';
 
 interface GalleryItem {
@@ -26,21 +25,52 @@ interface GalleryItem {
   createdAt: string;
 }
 
+const PAGE_SIZE = 9;
+
 export default function Gallery() {
   const [selectedImage, setSelectedImage] = useState<GalleryItem | null>(null);
+  const [galleryItems, setGalleryItems] = useState<GalleryItem[]>([]);
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const observer = useRef<IntersectionObserver | null>(null);
   const theme = useTheme();
 
-  const { data, isLoading } = useQuery<any>({
-    queryKey: ['gallery'],
-    queryFn: async () => {
-      const res = await fetch('/api/gallery');
-      if (!res.ok) throw new Error('Failed to fetch gallery items');
-      return res.json();
-    },
-  });
+  // Fetch paginated gallery items
+  const fetchGallery = useCallback(async (pageNum: number) => {
+    setIsLoading(true);
+    setError(null);
+    try {
+      const res = await fetch(`/api/gallery?page=${pageNum}&limit=${PAGE_SIZE}`);
+      if (!res.ok) throw new Error('خطا در دریافت تصاویر گالری');
+      const data = await res.json();
+      const items: GalleryItem[] = data?.data?.items || [];
+      setGalleryItems(prev => pageNum === 1 ? items : [...prev, ...items]);
+      setHasMore(items.length === PAGE_SIZE);
+    } catch (e: any) {
+      setError(e.message || 'خطا در دریافت تصاویر');
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
 
-  // Extract items array safely from API response
-  const galleryItems: GalleryItem[] = data?.data?.items || [];
+  // Initial load and on page change
+  useEffect(() => {
+    fetchGallery(page);
+  }, [page, fetchGallery]);
+
+  // Infinite scroll observer
+  const lastItemRef = useCallback((node: HTMLDivElement | null) => {
+    if (isLoading) return;
+    if (observer.current) observer.current.disconnect();
+    observer.current = new window.IntersectionObserver(entries => {
+      if (entries[0].isIntersecting && hasMore) {
+        setPage(prev => prev + 1);
+      }
+    });
+    if (node) observer.current.observe(node);
+  }, [isLoading, hasMore]);
 
   const handleImageClick = (item: GalleryItem) => {
     setSelectedImage(item);
@@ -49,16 +79,6 @@ export default function Gallery() {
   const handleCloseDialog = () => {
     setSelectedImage(null);
   };
-
-  if (isLoading) {
-    return (
-      <Container maxWidth="lg" sx={{ py: 4 }}>
-        <Typography variant="h5" align="center">
-          در حال بارگذاری...
-        </Typography>
-      </Container>
-    );
-  }
 
   return (
     <Container maxWidth="lg" sx={{ py: 4 }}>
@@ -75,25 +95,75 @@ export default function Gallery() {
         گالری تصاویر
       </Typography>
 
-      <Grid container spacing={4}>
-        {galleryItems?.map((item) => (
-          <Grid item key={item.id} xs={12} sm={6} md={4}>
-            <Card sx={{ ...(theme.glassCard || { background: 'rgba(255,255,255,0.08)', boxShadow: '0 4px 32px 0 rgba(0,0,0,0.12)', backdropFilter: 'blur(8px)' }), p: 1, position: 'relative', cursor: 'pointer' }} onClick={() => handleImageClick(item)}>
-              <CardMedia
-                component="img"
-                image={item.imageUrl}
-                alt={item.title}
-                sx={{ width: '100%', borderRadius: 2, objectFit: 'cover', maxHeight: 220 }}
-              />
-              <CardContent>
-                <Typography variant="subtitle1" sx={{ color: theme.palette.primary.main, fontWeight: 700, mt: 1 }}>{item.title}</Typography>
-                {item.description && <Typography variant="body2" sx={{ color: '#fff', opacity: 0.8 }}>{item.description}</Typography>}
+      <Grid container spacing={2}>
+        {galleryItems.map((item, idx) => (
+          <Grid
+            item
+            key={item.id}
+            xs={12}
+            sm={6}
+            md={4}
+            ref={idx === galleryItems.length - 1 ? lastItemRef : undefined}
+          >
+            <Card
+              sx={{
+                ...(theme.glassCard || {
+                  background: 'rgba(255,255,255,0.08)',
+                  boxShadow: '0 4px 32px 0 rgba(0,0,0,0.12)',
+                  backdropFilter: 'blur(8px)'
+                }),
+                p: 1,
+                position: 'relative',
+                cursor: 'pointer',
+                height: { xs: 240, sm: 260, md: 280 },
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'flex-start',
+              }}
+              onClick={() => handleImageClick(item)}
+            >
+              <Box sx={{ position: 'relative', width: '100%', height: { xs: 140, sm: 180, md: 200 }, borderRadius: 2, overflow: 'hidden' }}>
+                <Image
+                  src={item.imageUrl}
+                  alt={item.title}
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
+                  loading="lazy"
+                  placeholder="blur"
+                  blurDataURL="/images/placeholder.png"
+                />
+              </Box>
+              <CardContent sx={{ flex: 1, minHeight: 60 }}>
+                <Typography variant="subtitle1" sx={{ color: theme.palette.primary.main, fontWeight: 700, mt: 1, fontSize: { xs: '1rem', sm: '1.1rem' } }}>{item.title}</Typography>
+                {item.description && <Typography variant="body2" sx={{ color: '#fff', opacity: 0.8, fontSize: { xs: '0.85rem', sm: '0.95rem' } }}>{item.description}</Typography>}
                 {item.category && <Typography variant="caption" sx={{ color: theme.palette.secondary.main, fontWeight: 600, mt: 0.5, display: 'block' }}>دسته‌بندی: {item.category}</Typography>}
               </CardContent>
             </Card>
           </Grid>
         ))}
       </Grid>
+
+      {isLoading && (
+        <Box sx={{ display: 'flex', justifyContent: 'center', py: 3 }}>
+          <CircularProgress color="primary" />
+        </Box>
+      )}
+      {error && (
+        <Box sx={{ display: 'flex', justifyContent: 'center', py: 3 }}>
+          <Typography color="error" fontWeight={700}>{error}</Typography>
+        </Box>
+      )}
+      {!hasMore && !isLoading && galleryItems.length > 0 && (
+        <Box sx={{ textAlign: 'center', py: 2 }}>
+          <Typography color="text.secondary">همه تصاویر بارگذاری شد.</Typography>
+        </Box>
+      )}
+      {galleryItems.length === 0 && !isLoading && !error && (
+        <Box sx={{ textAlign: 'center', py: 4 }}>
+          <Typography color="text.secondary">تصویری برای نمایش وجود ندارد.</Typography>
+        </Box>
+      )}
 
       <Dialog
         open={Boolean(selectedImage)}
@@ -103,7 +173,7 @@ export default function Gallery() {
       >
         {selectedImage && (
           <>
-            <DialogContent sx={{ p: 0, position: 'relative' }}>
+            <DialogContent sx={{ p: 0, position: 'relative', bgcolor: '#111' }}>
               <IconButton
                 onClick={handleCloseDialog}
                 sx={{
@@ -115,23 +185,23 @@ export default function Gallery() {
                   '&:hover': {
                     bgcolor: 'rgba(0, 0, 0, 0.7)',
                   },
+                  zIndex: 2,
                 }}
               >
                 <CloseIcon />
               </IconButton>
-              <Image
-                src={selectedImage.imageUrl}
-                alt={selectedImage.title}
-                width={800}
-                height={600}
-                style={{
-                  width: '100%',
-                  height: 'auto',
-                  maxHeight: '80vh',
-                  objectFit: 'contain',
-                }}
-              />
-              <Box sx={{ p: 2 }}>
+              <Box sx={{ width: '100%', position: 'relative', minHeight: { xs: 200, sm: 350 }, bgcolor: '#111' }}>
+                <Image
+                  src={selectedImage.imageUrl}
+                  alt={selectedImage.title}
+                  width={900}
+                  height={600}
+                  style={{ width: '100%', height: 'auto', maxHeight: '80vh', objectFit: 'contain', borderRadius: 8 }}
+                  loading="eager"
+                  sizes="100vw"
+                />
+              </Box>
+              <Box sx={{ p: { xs: 2, sm: 3 } }}>
                 <Typography variant="h6" gutterBottom>
                   {selectedImage.title}
                 </Typography>

@@ -5,6 +5,8 @@ import {
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { DragDropContext, Droppable, Draggable, DropResult, DroppableProvided, DraggableProvided } from 'react-beautiful-dnd';
+import { useSession } from 'next-auth/react';
+import Image from 'next/image';
 
 const accent = '#22d3ee';
 const glassCardSx = {
@@ -37,6 +39,7 @@ interface GalleryItem {
 }
 
 const AdminGallery: React.FC = () => {
+  const { data: session } = useSession();
   const [gallery, setGallery] = useState<GalleryItem[]>([]);
   const [loading, setLoading] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
@@ -143,7 +146,8 @@ const AdminGallery: React.FC = () => {
           title: form.title,
           description: form.description,
           category: form.category || 'عمومی',
-          files: allImages
+          files: allImages,
+          userId: session?.user?.id, // اضافه شد
         }),
         credentials: 'include'
       });
@@ -225,7 +229,7 @@ const AdminGallery: React.FC = () => {
       const res = await fetch(`/api/gallery/${editItem.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...editForm, image: imageData }),
+        body: JSON.stringify({ ...editForm, image: imageData, userId: session?.user?.id }), // اضافه شد
         credentials: 'include'
       });
       const data = await res.json();
@@ -297,7 +301,7 @@ const AdminGallery: React.FC = () => {
                               <Box sx={{ position: 'absolute', top: 8, right: 8, bgcolor: '#22d3ee', color: '#fff', px: 1.5, py: 0.5, borderRadius: 2, fontWeight: 700, fontSize: 14, zIndex: 2 }}>
                                 {idx + 1}
                               </Box>
-                              <img src={item.imageUrl} alt={item.title} style={{ width: '100%', borderRadius: 8, objectFit: 'cover', maxHeight: 220 }} />
+                              <Image src={item.imageUrl} alt={item.title} width={400} height={220} style={{ width: '100%', borderRadius: 8, objectFit: 'cover', maxHeight: 220 }} />
                               <Typography variant="subtitle1" sx={{ color: accent, fontWeight: 700, mt: 1 }}>{item.title}</Typography>
                               {item.description && <Typography variant="body2" sx={{ color: '#fff', opacity: 0.8 }}>{item.description}</Typography>}
                               {item.category && <Typography variant="caption" sx={{ color: accent, fontWeight: 600, mt: 0.5, display: 'block' }}>دسته‌بندی: {item.category}</Typography>}
@@ -337,7 +341,7 @@ const AdminGallery: React.FC = () => {
               <input type="file" accept="image/*" hidden multiple onChange={handleFilesChange} />
             </Button>
             {imagePreviews.length > 0 && imagePreviews.map((src, idx) => (
-              <img key={idx} src={src} alt={`پیش‌نمایش ${idx+1}`} style={{ width: '100%', borderRadius: 8, marginTop: 8, objectFit: 'cover', maxHeight: 120 }} />
+              <Image key={idx} src={src} alt={`پیش‌نمایش ${idx+1}`} width={400} height={120} style={{ width: '100%', borderRadius: 8, marginTop: 8, objectFit: 'cover', maxHeight: 120 }} />
             ))}
             <Typography sx={{ color: accent, mt: 1, fontWeight: 700 }}>یا لینک عکس اینترنتی:</Typography>
             {form.links.map((link, idx) => (
@@ -365,7 +369,7 @@ const AdminGallery: React.FC = () => {
             </Button>
             <TextField value={editImageLink} onChange={handleEditImageLinkChange} placeholder="یا لینک عکس جدید (https://...)" fullWidth sx={{ input: { color: accent }, mt: 1 }} />
             {editImagePreview && (
-              <img src={editImagePreview} alt="پیش‌نمایش جدید" style={{ width: '100%', borderRadius: 8, marginTop: 8, objectFit: 'cover', maxHeight: 120 }} />
+              <Image src={editImagePreview} alt="پیش‌نمایش جدید" width={400} height={120} style={{ width: '100%', borderRadius: 8, marginTop: 8, objectFit: 'cover', maxHeight: 120 }} />
             )}
             <Button type="submit" disabled={uploading} sx={{ mt: 2, fontWeight: 800, color: accent, border: '1.5px solid #22d3ee99', borderRadius: 2 }}>{uploading ? <CircularProgress size={24} /> : 'ذخیره تغییرات'}</Button>
             <Button type="button" onClick={() => setEditItem(null)} sx={{ color: '#fff', mt: 1 }}>انصراف</Button>
